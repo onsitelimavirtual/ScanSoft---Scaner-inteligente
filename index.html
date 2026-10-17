@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0759b7"><title>ScanSoft 5.5 • Central Documental Integrada</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230c70e5%27/%3E%3Cpath d=%27M16 16h32v32H16z%27 fill=%27white%27/%3E%3Cpath d=%27M23 27h18M23 34h18M23 41h12%27 stroke=%27%230c70e5%27 stroke-width=%273%27/%3E%3C/svg%3E"><style>
+:root{font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:#eef5ff;background:#0b1220}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}.app{max-width:1440px;margin:auto;padding:19px}.top{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:18px}.brand{display:flex;gap:13px;align-items:center}.logo{display:grid;place-items:center;width:49px;height:49px;border-radius:15px;color:#001e35;background:linear-gradient(135deg,#51e3cb,#64aaff);font-size:26px;font-weight:900}.brand b{font-size:23px;letter-spacing:-.7px}.muted{color:#aab9cf;font-size:13px}.tag{padding:7px 10px;border:1px solid #2b4361;border-radius:30px;color:#9edecf;font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(290px,.9fr);gap:16px}.panel{border:1px solid #263750;background:#131e30;border-radius:18px;overflow:hidden}.pad{padding:18px}.section-title{font-weight:700;margin:0 0 11px}.view{background:#070d16;position:relative;display:grid;place-items:center;min-height:380px;overflow:hidden}.view video,.view canvas,.view img{display:block;max-width:100%;max-height:63vh;object-fit:contain}.view video{width:100%;max-height:63vh}.view canvas{width:auto;height:auto;touch-action:none;cursor:crosshair}.empty{text-align:center;padding:35px;color:#adbbcf;line-height:1.7}.empty strong{font-size:45px;display:block;margin-bottom:5px}.overlay{position:absolute;left:12px;top:12px;background:#07111dd9;color:#a7ffdc;font-size:12px;border-radius:7px;padding:6px 9px;pointer-events:none}.actions{display:flex;flex-wrap:wrap;gap:8px}.btn{background:#283a54;border:1px solid #405675;color:#edf5ff;padding:10px 13px;border-radius:10px;font-weight:600;min-height:43px}.btn:hover{background:#344c6a}.primary{background:#49dbc0;border-color:#49dbc0;color:#062734}.primary:hover{background:#6aecd6}.danger{color:#ffbcbc}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:13px 0}.row label{color:#d5e5f5;font-size:13px}.row input[type=range]{width:52%;accent-color:#58dfc7}.small{font-size:12px;color:#aabbd1;line-height:1.5}.side{display:flex;flex-direction:column;gap:16px}.thumbs{display:flex;gap:10px;overflow-x:auto;padding:13px;min-height:115px}.thumb{position:relative;flex:none;width:87px;text-align:center;color:#becce0;font-size:11px;border:2px solid transparent;border-radius:9px;padding:4px;background:#19273b;cursor:pointer}.thumb.active{border-color:#59e6cf}.thumb img{width:100%;height:83px;object-fit:contain;background:#07101d;border-radius:5px}.thumb span{display:block;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.control{width:100%;background:#0d1727;border:1px solid #3c506a;color:#eef6ff;border-radius:9px;padding:9px}.note{border-left:3px solid #5cdbc7;padding-left:10px;color:#b7c8dd;font-size:12px;line-height:1.55}.status{min-height:22px;color:#a1edda;font-size:12px;margin:9px 0}.checkbox{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#c9d6e6;margin:12px 0}.checkbox input{accent-color:#42dcc4}.ocr{height:118px;resize:vertical}.footer{text-align:center;margin-top:16px;color:#91a7bf;font-size:12px}a{color:#9ce5da}.hidden{display:none!important}.cropHint{position:absolute;bottom:10px;left:12px;right:12px;text-align:center;background:#07111dd9;font-size:12px;padding:8px;border-radius:8px;color:#bffded;pointer-events:none}#cropCanvas{touch-action:none}@media(max-width:850px){.layout{grid-template-columns:1fr}.app{padding:11px}.view{min-height:270px}.pad{padding:14px}.view video,.view canvas{max-height:52vh}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* ScanSoft brand theme, single-file offline ready */
+:root{color:#16345a;background:#eef5fd}body{background:linear-gradient(145deg,#eaf5ff,#f7fbff 48%,#e8f2ff);min-height:100vh}.app{max-width:1520px;padding:18px}.top{background:#fff;border:1px solid #dbe8f6;box-shadow:0 8px 26px #144e8820;border-radius:19px;padding:12px 19px;margin-bottom:15px}.brand{gap:10px}.logo{width:66px;height:66px;background:linear-gradient(135deg,#eaf9ff,#f7fbff);border-radius:17px;box-shadow:inset 0 0 0 1px #d4e9ff}.brand b{font-size:clamp(23px,3vw,35px);letter-spacing:-1.2px}.brand-name span{color:#082951}.brand-name em{font-style:normal;color:#087eff}.muted{color:#59718e}.tag{color:#145c97;border-color:#cee3f6;background:#edf8ff}.panel{background:#fff;border-color:#d8e5f3;box-shadow:0 6px 23px #164e7912}.section-title{color:#14385f}.view{background:#e5edf6}.empty{color:#4b6887}.empty strong{color:#147be5}.btn{color:#17446c;background:#eff5fc;border-color:#d0e1f3;transition:background .12s}.btn:hover{background:#dfedff}.primary{color:#fff;background:linear-gradient(110deg,#065be7,#11a7f5);border-color:#096ce8}.primary:hover{background:#117be5}.danger{color:#a21f35}.row label{color:#25496f}.row input[type=range]{accent-color:#087ef7}.small{color:#536b88}.thumb{color:#355577;background:#eff5fc}.thumb.active{border-color:#087ef7}.thumb img{background:#fff}.control{background:#f5f9ff;border-color:#cbdeef;color:#12375d}.note{border-left-color:#1384ef;color:#45698b}.status{color:#075ca7}.checkbox{color:#375d82}.checkbox input{accent-color:#087ef7}.footer{color:#557494}a{color:#086ed7}.overlay{color:#eaffff}.cropHint{color:#dbf7ff}@media(max-width:650px){.app{padding:8px}.top{padding:10px}.logo{width:52px;height:52px}.logo svg{width:45px;height:45px}.brand b{font-size:25px}.tag{width:100%;text-align:center}.btn{flex-grow:1}.view{min-height:260px}}
+</style><style>
+.doc-workspace{margin-top:16px}.doc-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,1fr);gap:14px}.pdf-stage{background:#e6edf5;border-radius:12px;min-height:320px;max-height:67vh;overflow:auto;text-align:center;padding:15px}.pdf-stage canvas{max-width:100%;height:auto;box-shadow:0 6px 24px #15345132}.doc-edit{min-height:260px;resize:vertical;width:100%;font:15px/1.55 system-ui}.pdf-tools{margin-bottom:12px}.doc-status{font-size:13px;color:#225883;min-height:1.5em}.doc-workspace input[type=search]{max-width:360px}.doc-note{background:#eff6ff;border-left:3px solid #2584db;padding:10px;border-radius:5px;font-size:12px;color:#395a79}@media(max-width:800px){.doc-grid{grid-template-columns:1fr}.pdf-stage{max-height:55vh}}
+
+/* Editor visual PDF v2.0 */
+.edit-stage{position:relative;display:inline-block;line-height:0;max-width:none}.edit-stage canvas{display:block;max-width:none}.edit-overlay{position:absolute;inset:0;touch-action:none;cursor:crosshair;max-width:none!important;box-shadow:none!important}.edit-panel{border:1px solid #cbdff2;background:#f4f9ff;padding:14px;border-radius:12px;margin:14px 0}.edit-panel .control{max-width:220px}.edit-panel button[aria-pressed="true"]{background:#075cbb;color:white}.edit-help{font-size:12px;color:#45698b;margin:7px 0}.pdf-stage{overflow:auto}.edit-stage{vertical-align:top}
+</style><style>
+.org-pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:9px;margin:12px 0;max-height:340px;overflow:auto}.org-page{display:flex;flex-direction:column;gap:5px;text-align:left;background:#f3f7fc;border:1px solid #c9dcef;border-radius:10px;padding:9px;cursor:pointer;color:#19496f}.org-page[aria-pressed="true"]{outline:3px solid #2482f3;background:#e1efff}.org-page strong{font-size:13px}.org-page small{font-size:11px;word-break:break-word}.org-page em{font-style:normal;font-size:11px;color:#526b83}.org-page:focus-visible{outline:3px solid #0c62d6}.edit-panel button:disabled{opacity:.45}
+.audit-list{max-height:260px;overflow:auto;display:grid;gap:7px}.audit-item{display:flex;justify-content:space-between;gap:12px;padding:10px;border:1px solid #cddced;border-radius:9px;background:#f6faff;color:#193c65;font-size:13px}.audit-item small{color:#536b88}.audit-item.warn{border-color:#ebc891;background:#fffaf0}.audit-item strong{font-variant-numeric:tabular-nums}@media(max-width:650px){.audit-item{flex-direction:column}}
+</style><style>
+/* ScanSoft 4.0: visualização de achados e revisão */
+#searchOverlay32{position:absolute;inset:0;pointer-events:none!important;box-shadow:none!important;max-width:none!important;z-index:8}
+#previewWrap32{position:relative;display:inline-block;line-height:0}
+#scanOverlay32{position:absolute;inset:0;pointer-events:none;max-width:100%;height:auto;z-index:6}
+.qa32{border:1px solid #bad6ef;background:#f2f8ff;border-radius:12px;padding:14px;margin:12px 0}
+.qa32 label{font-size:13px;color:#244666}.qa32 .small{line-height:1.5}.qa32 button{min-height:38px}
+.qa32 .bar32{height:10px;background:#d6e4f2;border-radius:9px;overflow:hidden}.qa32 .bar32 span{display:block;height:100%;background:#087ce8;width:0;transition:width .15s}
+.qa32 .review32{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+</style><style>
+.ss5{margin:16px 0;border:1px solid #c6ddf7;background:linear-gradient(130deg,#fff,#f2f8ff);border-radius:18px;padding:20px;box-shadow:0 8px 22px #144e8810}
+.ss5 h2{margin:0 0 8px;color:#123d6d}.ss5grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0}
+.ss5metric{border:1px solid #d6e6f7;background:#fff;padding:12px;border-radius:12px}.ss5metric strong{font-size:25px;display:block;color:#0768c8}.ss5metric span{color:#57718d;font-size:12px}
+.ss5bar{height:9px;background:#dae9fa;border-radius:20px;overflow:hidden}.ss5bar i{display:block;height:100%;background:#138fe6;width:0;transition:width .2s}
+.ss5result{display:block;width:100%;text-align:left;background:#fff;color:#245077;border:1px solid #d5e6f7;padding:10px;margin:6px 0;border-radius:9px;cursor:pointer}.ss5result:hover{background:#eaf5ff}
+.ss5badge{display:inline-block;background:#e7f6f0;color:#12624a;border-radius:20px;padding:5px 10px;font-size:12px}
+@media(max-width:700px){.ss5grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ss5{padding:12px}}
+</style><style>
+#library55{margin:18px auto;max-width:1520px;border:1px solid #d4e5f6;border-radius:18px;background:#fff;padding:18px;box-shadow:0 6px 22px #164e7912;color:#17395f}
+#library55 h2{margin:0 0 7px;font-size:22px}#library55 .ss55tools{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0}#library55 input[type=search]{flex:1;min-width:170px;max-width:360px}#library55 .ss55list{display:grid;gap:8px;max-height:380px;overflow:auto}#library55 .ss55item{display:flex;gap:12px;justify-content:space-between;align-items:center;background:#f1f7ff;border:1px solid #d5e6f7;border-radius:11px;padding:11px;flex-wrap:wrap}#library55 .ss55item strong{overflow-wrap:anywhere}#library55 .ss55meta{font-size:12px;color:#617997}#library55 .ss55buttons{display:flex;gap:6px;flex-wrap:wrap}#library55 .ss55buttons button{padding:7px 10px}#library55 .ss55status{min-height:1.4em;color:#245b91;font-size:13px}
+</style></head><body><main class="app"><header class="top"><div class="brand"><div class="logo" aria-hidden="true"><svg viewBox="0 0 64 64" width="53" height="53" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ssg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#03bbfa"/><stop offset="1" stop-color="#1155db"/></linearGradient></defs><path d="M11 20V12a5 5 0 0 1 5-5h8 M40 7h8a5 5 0 0 1 5 5v8 M53 44v8a5 5 0 0 1-5 5h-8 M24 57h-8a5 5 0 0 1-5-5v-8" fill="none" stroke="url(#ssg)" stroke-width="6" stroke-linecap="round"/><path d="M21 20h15l8 8v17H21z" fill="#e9f9ff" stroke="#0b65bc" stroke-width="2.5"/><path d="M36 20v9h8" fill="#6cceff"/><path d="M26 34h12 M26 39h12" stroke="#237bc4" stroke-width="2.5" stroke-linecap="round"/><path d="M8 48h48" stroke="#00bafb" stroke-width="2" opacity=".85"/></svg></div><div><b class="brand-name"><span>Scan</span><em>Soft</em></b><div class="muted">Suíte documental integrada • versão 5.1</div></div></div><span class="tag">Privacidade: processamento local • sem envio</span></header>
+<section class="ss5" id="central50" aria-label="Central de trabalho ScanSoft 5.2">
+ <div style="display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap"><div><h2>◈ ScanSoft 5.2 · Central de trabalho</h2><p class="small">Scanner, OCR, revisão e organização de documentos em um fluxo integrado. Seus documentos permanecem na sessão local até serem exportados.</p></div><span class="ss5badge">Processamento local • offline parcial</span></div>
+ <div class="ss5grid" aria-live="polite"><div class="ss5metric"><strong id="ss5Pages">0</strong><span>Páginas no scanner</span></div><div class="ss5metric"><strong id="ss5Done">0</strong><span>Com texto OCR</span></div><div class="ss5metric"><strong id="ss5Pending">0</strong><span>Pendentes</span></div><div class="ss5metric"><strong id="ss5Review">0</strong><span>Revisão recomendada</span></div></div>
+ <div class="ss5bar" aria-label="Progresso de reconhecimento"><i id="ss5Progress"></i></div>
+ <h3 class="section-title" style="margin-top:18px">Fluxo de OCR em lote</h3>
+ <div class="actions"><button class="btn primary" type="button" id="ss5Run">Reconhecer apenas pendentes</button><button class="btn" type="button" id="ss5ReviewNext">Ir à próxima revisão</button><button class="btn" type="button" id="ss5Refresh">Atualizar diagnóstico</button></div>
+ <h3 class="section-title" style="margin-top:18px">Localizar em todos os textos OCR</h3>
+ <div class="actions"><input class="control" type="search" id="ss5Query" style="flex:1;min-width:190px" placeholder="Pesquise nomes, valores, números ou frases"><button class="btn" id="ss5Search" type="button">Pesquisar</button></div>
+ <label class="checkbox"><input id="ss5Whole" type="checkbox"> Correspondência de palavra inteira</label>
+ <p class="small" id="ss5SearchStatus" role="status">A pesquisa reúne o texto OCR de todas as páginas digitalizadas, ignorando maiúsculas e acentos.</p><div id="ss5Results" style="max-height:260px;overflow:auto"></div>
+ <h3 class="section-title" style="margin-top:18px">Projeto e exportações integradas</h3>
+ <div class="actions"><button class="btn" id="ss5Txt" type="button">↓ Texto completo (.txt)</button><button class="btn" id="ss5Csv" type="button">↓ Diagnóstico (.csv)</button><button class="btn" id="ss5Backup" type="button">↓ Salvar projeto (.json)</button><button class="btn" id="ss5Restore" type="button">↑ Reabrir projeto</button><input hidden type="file" id="ss5RestoreFile" accept=".json,application/json"></div>
+ <h3 class="section-title" style="margin-top:18px">Recuperação de projetos — atualizado na 5.2</h3>
+ <label class="checkbox"><input type="checkbox" id="ss51Auto"> Ativar autosalvamento local neste navegador (somente páginas do scanner)</label>
+ <div class="actions"><button class="btn" id="ss51Save" type="button">Salvar agora no dispositivo</button><button class="btn" id="ss51Recover" type="button">Recuperar último projeto</button><button class="btn danger" id="ss51Delete" type="button">Apagar backup local</button></div>
+ <div class="panel" style="padding:13px;margin:12px 0;border:1px solid #d4e4f5;background:#f6faff"><h3 class="section-title">Histórico de versões — novo na 5.2</h3><p class="small">Até 5 versões locais do scanner. Cada versão ocupa espaço no dispositivo. O navegador pode excluir dados em situações de armazenamento insuficiente.</p><div class="actions"><button class="btn primary" id="ss52VersionSave" type="button">Criar versão</button><button class="btn" id="ss52Refresh" type="button">Atualizar lista</button><button class="btn" id="ss52Export" type="button">↓ Exportar versão</button><button class="btn danger" id="ss52Delete" type="button">Excluir versão</button></div><div class="row"><label for="ss52Versions">Versão disponível</label><select class="control" id="ss52Versions" style="width:68%"><option value="">Nenhuma versão registrada</option></select></div><div class="actions"><button class="btn" type="button" id="ss52Recover">Restaurar versão selecionada</button></div><p class="small" role="status" aria-live="polite" id="ss52Status">Histórico armazenado exclusivamente neste navegador.</p><p class="small" id="ss52Quota">Uso de armazenamento: a verificar.</p></div>
+ <p class="small" id="ss51Status" role="status" aria-live="polite">Autosalvamento desligado. O backup fica no armazenamento deste navegador e não é criptografado.</p>
+ <p class="small" id="ss5Status" role="status" aria-live="polite">Projeto pronto. Exporte backups JSON periodicamente.</p>
+ <p class="note">O autosalvamento é opcional e armazena dados localmente, sem criptografia, no perfil do navegador. Não use em dispositivos compartilhados. O backup JSON inclui as imagens e os textos e pode ficar grande. Ela não inclui PDFs originais abertos apenas no leitor, arquivos DOCX importados nem alterações não exportadas do organizador/editor de PDF. Não é armazenamento em nuvem.</p>
+ </section>
+<div class="layout"><div><section class="panel"><div class="pad"><h2 class="section-title">Digitalização</h2><div class="actions"><button class="btn primary" id="nativeCamera">📷 Câmera padrão</button><input id="nativeCapture" type="file" accept="image/*" capture="environment" hidden><button class="btn" id="startCamera">◉ Câmera ao vivo</button><button class="btn" id="take" disabled>Capturar</button><button class="btn" id="stopCamera" disabled>Fechar câmera</button><button class="btn" id="upload">＋ Importar imagens</button><input id="files" type="file" accept="image/*" multiple hidden></div><p class="small">Câmera padrão: abre a câmera nativa em dispositivos compatíveis, inclusive ao executar o HTML localmente. Câmera ao vivo: exige permissão e normalmente HTTPS ou localhost.</p><div class="row"><label for="cameraFacing">Câmera ao vivo</label><select id="cameraFacing" class="control" style="width:55%"><option value="environment">Traseira</option><option value="user">Frontal</option></select></div><div class="row"><label for="captureSize">Resolução solicitada</label><select id="captureSize" class="control" style="width:55%"><option value="max">Máxima disponível</option><option value="fullhd">1920 × 1080</option><option value="hd">1280 × 720</option></select></div><div class="status" id="status" role="status" aria-live="polite">Pronto para digitalizar.</div></div><div class="view" id="view"><div class="empty" id="empty"><strong>▤</strong>Abra a câmera ou importe imagens para começar.</div><video id="video" autoplay playsinline muted class="hidden"></video><canvas id="preview" class="hidden"></canvas><div class="overlay hidden" id="resolution"></div><div class="cropHint hidden" id="cropHint">Arraste sobre a imagem para selecionar a área de recorte.</div></div><div class="pad"><div class="actions"><button class="btn" id="rotate" disabled>↻ Girar 90°</button><button class="btn" id="crop" disabled>▱ Recortar</button><button class="btn" id="applyCrop" disabled>Aplicar recorte</button><button class="btn" id="cancelCrop" disabled>Cancelar</button><button class="btn" id="original" disabled>Restaurar original</button><button class="btn danger" id="remove" disabled>Excluir página</button></div></div></section>
+<section class="panel" style="margin-top:16px"><div class="pad"><h2 class="section-title">Páginas <span class="muted" id="pageCount">(0)</span></h2><div class="actions"><button class="btn" id="moveLeft" disabled>← Mover</button><button class="btn" id="moveRight" disabled>Mover →</button><button class="btn" id="clear" disabled>Limpar tudo</button></div></div><div class="thumbs" id="thumbs"><span class="muted">Nenhuma página adicionada.</span></div></section></div>
+<aside class="side"><section class="panel pad"><h2 class="section-title">Aprimoramento não destrutivo</h2><p class="small">Filtros apenas para visualização e exportação processada. A captura original permanece preservada até você excluí-la.</p><div class="row"><label for="mode">Perfil</label><select class="control" style="width:56%" id="mode"><option value="none">Original</option><option value="document">Documento</option><option value="gray">Cinza</option><option value="bw">Preto e branco</option></select></div><div class="row"><label for="brightness">Brilho <output id="bv">0</output></label><input id="brightness" type="range" min="-70" max="70" value="0"></div><div class="row"><label for="contrast">Contraste <output id="cv">0</output></label><input id="contrast" type="range" min="-70" max="70" value="0"></div><div class="row"><label for="threshold">Limiar P&B <output id="tv">150</output></label><input id="threshold" type="range" min="60" max="230" value="150"></div><label class="checkbox"><input type="checkbox" id="sharp">Nitidez suave (pode intensificar ruídos; confira o resultado)</label><div class="actions"><button class="btn" id="resetFilters" disabled>Redefinir ajustes</button></div><p class="note">Aprimoramento não recupera detalhes que não foram capturados. O modo preto e branco pode ocultar carimbos, cores e anotações sutis. Confira o original antes de usar documentos oficiais.</p></section>
+<section class="panel pad"><h2 class="section-title">Exportação</h2><div class="row"><label for="quality">JPEG qualidade</label><select class="control" style="width:50%" id="quality"><option value="1" selected>Máxima</option><option value="0.95">Alta</option><option value="0.85">Equilibrada</option></select></div><label class="checkbox"><input type="checkbox" id="exportOriginal">Exportar imagens originais (sem filtros e sem recorte)</label><div class="actions"><button class="btn primary" id="savePDF" disabled>↓ PDF multipágina</button><button class="btn" id="saveSearchPDF" disabled>↓ PDF pesquisável</button><button class="btn" id="savePNG" disabled>↓ PNG / ZIP</button><button class="btn" id="saveJPG" disabled>↓ JPEG / ZIP</button></div><p class="small">O PDF usa JPEG na qualidade escolhida e não é sem perdas. PNG mantém os pixels da imagem exportada sem compressão com perdas. ZIP reúne várias páginas.</p></section>
+<section class="panel pad"><h2 class="section-title">Reconhecimento de texto (OCR)</h2><div class="note" style="margin-bottom:12px">4.0: OCR offline real em computador via Node.js + Tesseract do sistema. Os modelos de idioma já estão no ZIP. Abra pelo servidor local; a versão HTML aberta diretamente mantém os mecanismos de OCR existentes.</div><div class="actions"><button class="btn" id="checkOffline40" type="button">Verificar OCR offline</button><button class="btn" id="pdfOffline40" type="button">Importar PDF offline ao scanner</button><input type="file" id="pdfOfflineInput40" accept="application/pdf,.pdf" hidden></div><p id="offline40" class="small" role="status">Clique em Verificar OCR offline.</p><p class="small" id="ocrSupport">OCR disponível com motor Tesseract.js (carregamento sob demanda) ou reconhecimento nativo, quando suportado.</p><div class="row"><label for="ocrEngine">Motor OCR</label><select id="ocrEngine" class="control" style="width:58%"><option value="local">Tesseract local — offline no computador</option><option value="tesseract">Tesseract.js — navegador</option><option value="native">Nativo — se disponível</option></select></div><div class="row"><label for="ocrSource">Biblioteca OCR</label><select id="ocrSource" class="control" style="width:58%"><option value="online">Online (sob demanda)</option><option value="offline">Pacote local (sem internet)</option></select></div><div class="row"><label for="ocrLanguage">Idioma</label><select id="ocrLanguage" class="control" style="width:58%"><option value="por">Português</option><option value="por+eng">Português + inglês</option><option value="eng">Inglês</option></select></div><div class="row"><label for="ocrQuality">Precisão</label><select id="ocrQuality" class="control" style="width:58%"><option value="balanced">Equilibrada (rápida)</option><option value="accurate">Aprimorada (duas leituras)</option></select></div><div id="ocrAudit" class="note" role="status">QA OCR: nenhuma página analisada.</div><section aria-label="Localizar em documentos" style="background:#f0f7ff;border:1px solid #cadef5;border-radius:12px;padding:12px;margin:13px 0"><h3 class="section-title" style="font-size:15px">🔎 Localizar em páginas (Ctrl+F interno)</h3><input id="findQuery" class="control" placeholder="Digite palavra ou expressão..." aria-label="Texto a localizar" autocomplete="off"><div class="actions" style="margin-top:9px"><button class="btn" id="findPrevious" type="button">← Anterior</button><button class="btn primary" id="findNext" type="button">Próximo →</button><button class="btn" id="findClear" type="button">Limpar busca</button></div><label class="checkbox"><input id="findExact" type="checkbox">Diferenciar maiúsculas e minúsculas</label><p class="small" id="findStatus" aria-live="polite">Reconheça ou digite texto para pesquisar.</p><div id="findResults" style="max-height:165px;overflow:auto" aria-label="Ocorrências encontradas"></div></section><div class="actions"><button class="btn primary" id="doOCR" disabled>Reconhecer página</button><button class="btn" id="ocrAll" disabled>Reconhecer todas</button><button class="btn" id="copyText" disabled>Copiar texto</button><button class="btn" id="saveText" disabled>↓ Exportar TXT</button></div><progress id="ocrProgress" class="hidden" max="100" value="0" style="width:100%;margin-top:10px"></progress><p id="ocrProgressText" class="small" role="status" aria-live="polite"></p><textarea id="ocrText" class="control ocr" aria-label="Texto reconhecido ou editável" placeholder="O texto reconhecido aparecerá aqui. Você também pode digitar/transcrever manualmente."></textarea><p class="note">Confiança do OCR é estimativa do motor, não garantia de precisão. O modo aprimorado compara duas leituras e escolhe a de maior confiança. A camada PDF usa posições das palavras quando disponíveis; textos editados usam posicionamento aproximado. Modo offline exige os arquivos locais do Tesseract.js e os modelos de idioma ao lado do HTML. O modo online baixa código e modelos de provedores externos quando necessário (requer internet e pode falhar no modo file:// conforme o navegador). A leitura é executada no dispositivo, sem envio intencional das imagens pelo aplicativo. Texto reconhecido requer revisão humana. O modo nativo pode estar indisponível.</p></section></aside></div>
+<section id="library55" aria-labelledby="library55Title">
+<h2 id="library55Title">📁 Biblioteca documental integrada — ScanSoft 5.5</h2>
+<p class="small">Guarde cópias locais de PDFs e DOCX para reabrir, renomear, pesquisar pelo nome e baixar. Armazenamento privado por navegador e origem, sem envio à nuvem. Não é criptografado: evite computadores compartilhados.</p>
+<div class="ss55tools"><button class="btn primary" type="button" id="ss55Add">＋ Adicionar documentos</button><input id="ss55Files" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" multiple hidden><input id="ss55Search" type="search" class="control" placeholder="Localizar por nome…" aria-label="Localizar arquivo na biblioteca"><button class="btn" type="button" id="ss55Refresh">↻ Atualizar</button></div>
+<div id="ss55Status" class="ss55status" role="status" aria-live="polite">Biblioteca local pronta.</div><div class="ss55list" id="ss55List" aria-label="Documentos salvos"></div>
+<p class="small">Limite preventivo: 100 MB por arquivo; capacidade total depende do navegador. Documentos na biblioteca são cópias originais, não versões editadas automaticamente. Salve PDFs modificados pelo editor e adicione o arquivo gerado se quiser arquivá-lo aqui.</p>
+</section>
+<section class="panel pad doc-workspace" id="documents" aria-labelledby="docTitle"><h2 id="docTitle" class="section-title">📖 Biblioteca PDF e Word • Leitor e conversor</h2>
+<p class="small">Abra um PDF ou documento Word (.docx) do seu dispositivo, consulte o conteúdo e crie uma cópia convertida. Os arquivos são processados localmente depois que as bibliotecas necessárias forem carregadas.</p>
+<div class="actions pdf-tools"><button class="btn primary" id="openPdf">📂 Abrir PDF</button><input type="file" id="pdfInput" accept=".pdf,application/pdf" hidden><button class="btn" id="openWord">📂 Abrir Word</button><input type="file" id="wordInput" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden><button class="btn" id="downloadSource" disabled>↓ Baixar original</button><button class="btn" id="pdfToScanner" disabled>Enviar página ao scanner</button></div>
+<div class="actions pdf-tools"><button class="btn" id="pdfPrev" disabled>← Página anterior</button><span id="pdfCounter" style="align-self:center">Nenhum PDF aberto</span><button class="btn" id="pdfNext" disabled>Próxima página →</button><label style="align-self:center">Zoom <select id="pdfZoom" class="control" style="width:auto"><option value="0.8">80%</option><option value="1" selected>100%</option><option value="1.3">130%</option><option value="1.7">170%</option></select></label></div>
+<div class="actions pdf-tools"><input id="pdfFind" type="search" class="control" placeholder="Localizar texto no PDF…" aria-label="Buscar texto no PDF"><button class="btn" id="pdfSearch">Localizar</button><button class="btn" id="pdfSearchPrev">←</button><button class="btn" id="pdfSearchNext">→</button><span id="pdfFindInfo" class="small" style="align-self:center"></span></div>
+
+
+
+<section class="qa32" aria-label="Pesquisa visual ScanSoft 4.0"><h3 class="section-title">📍 Destaque visual — 3.3</h3>
+<p class="small">As ocorrências localizadas em texto selecionável serão realçadas na página, quando a estrutura do PDF fornecer coordenadas suficientes. O destaque não altera o arquivo original.</p>
+<label class="checkbox"><input type="checkbox" id="highlight32" checked> Destacar resultados dentro do PDF</label>
+<span id="highlightStatus32" class="small" role="status">Abra um PDF e faça uma pesquisa.</span>
+</section>
+<section class="panel pad" id="search31" style="margin-top:15px">
+<h3 class="section-title">🔍 Pesquisa documental avançada — 3.1</h3>
+<p class="small">Encontre termos no texto selecionável do PDF, consulte trechos de contexto e salte diretamente às páginas. A busca ignora acentos e diferenças entre maiúsculas e minúsculas. PDFs de imagem precisam de OCR antes da pesquisa.</p>
+<div class="actions" style="align-items:center"><label class="checkbox"><input id="findWhole31" type="checkbox"> Palavra inteira</label><label class="checkbox"><input id="findPages31" type="checkbox" checked> Mostrar trechos encontrados</label><button class="btn" id="exportFind31" disabled>↓ Exportar achados CSV</button><button class="btn" id="clearFind31">Limpar resultados</button></div>
+<div id="findProgress31" role="status" aria-live="polite" class="small">Abra um PDF e utilize a caixa “Localizar texto no PDF” acima.</div>
+<div id="findList31" class="audit-results" style="max-height:300px;overflow:auto;margin-top:10px"></div>
+</section>
+<section class="edit-panel" id="auditPanel" aria-label="Auditoria documental PDF">
+
+<section class="qa32" aria-label="OCR automático PDF 3.3" id="autoPanel33"><h3 class="section-title">⚡ PDF para OCR — fluxo assistido 3.3</h3>
+<p class="small">Analisa o PDF aberto, importa somente páginas com pouco texto selecionável e reconhece essas páginas. Os demais textos do PDF original não são alterados. Revise os resultados antes de exportar.</p>
+<label class="checkbox"><input type="checkbox" id="autoAll33"> Reconhecer também páginas que já possuem texto (mais lento)</label>
+<div class="actions"><button class="btn primary" type="button" id="autoRun33">Analisar e executar OCR</button><button class="btn" type="button" id="autoCancel33" disabled>Cancelar próximas páginas</button><button class="btn" type="button" id="autoCsv33" disabled>↓ Relatório de processamento</button></div>
+<progress id="autoProgress33" style="width:100%;margin-top:12px" value="0" max="100"></progress><p class="small" id="autoStatus33" role="status" aria-live="polite">Abra um PDF para iniciar.</p>
+</section>
+<h3 class="section-title">🛡️ Diagnóstico de PDF e OCR assistido — v4.0</h3>
+<p class="edit-help">Analisa o PDF por página para identificar texto selecionável, possíveis páginas digitalizadas e páginas que precisam de OCR. Não certifica a integridade ou autenticidade jurídica do arquivo.</p>
+<div class="actions pdf-tools"><button class="btn primary" id="auditPDF" disabled>Inspecionar PDF</button><button class="btn" id="auditCSV" disabled>↓ Relatório CSV</button><label class="small" for="scanDpi">Qualidade de importação <select class="control" id="scanDpi"><option value="1.5">Equilibrada</option><option value="2" selected>Alta (2×)</option><option value="2.5">Máxima (2,5×)</option></select></label><button class="btn" id="importScannedPages" disabled>Enviar páginas sem texto para OCR</button></div>
+<div class="actions pdf-tools"><label class="checkbox"><input type="checkbox" id="importAllPages"> Importar todas as páginas (mesmo as que têm texto)</label></div>
+<p class="note">A importação adiciona imagens ao scanner sem alterar o PDF original. Após importar, execute “Reconhecer todas” na área OCR. O OCR online precisa baixar componentes; o offline requer bibliotecas e modelos locais. Arquivos protegidos por senha podem não abrir.</p>
+<p class="small" id="auditStatus" role="status" aria-live="polite">Abra um PDF e clique em Inspecionar PDF.</p>
+<div id="auditResults" class="audit-list" role="region" aria-label="Resultado da auditoria"></div>
+</section>
+<section class="edit-panel" id="pdfOrganizer" aria-label="Organizador de páginas PDF">
+<h3 class="section-title">📚 Organização profissional de PDF — v4.0</h3>
+<p class="edit-help">Organize sem rasterizar: mescle PDFs, altere a ordem, remova, gire ou extraia páginas. O documento original permanece intacto até você salvar uma nova cópia.</p>
+<div class="actions pdf-tools"><button class="btn" id="orgImport">＋ Mesclar outro PDF</button><input type="file" id="orgInput" accept=".pdf,application/pdf" multiple hidden><button class="btn" id="orgRefresh">↻ Atualizar páginas</button><button class="btn" id="orgSelectAll">Selecionar todas</button><button class="btn" id="orgDeselect">Desmarcar</button></div>
+<div id="orgPages" class="org-pages" aria-label="Lista ordenada de páginas"></div>
+<div class="actions pdf-tools"><button class="btn" id="orgUp">↑ Subir</button><button class="btn" id="orgDown">↓ Descer</button><button class="btn" id="orgRotate">↻ Girar 90°</button><button class="btn danger" id="orgRemove">Excluir selecionadas</button><button class="btn" id="orgExtract">↓ Extrair selecionadas</button><button class="btn primary" id="orgSave">↓ Salvar PDF organizado</button></div>
+<p class="edit-help" id="orgStatus" role="status" aria-live="polite">Abra um PDF para organizar suas páginas. As alterações ficam em rascunho até a exportação.</p>
+</section>
+<section class="edit-panel" aria-label="Editor visual de PDF"><h3 class="section-title">✍️ Editor visual do PDF — v4.0</h3><p class="edit-help">Abra um PDF, selecione uma ferramenta e toque ou arraste sobre a página. As alterações são sobreposições; o conteúdo original não é apagado.</p>
+<div class="actions pdf-tools"><button class="btn" id="editSelect" aria-pressed="true">☝ Navegar</button><button class="btn" id="editText">T Texto</button><button class="btn" id="editHighlight">▤ Destacar</button><button class="btn" id="editRect">▣ Retângulo</button><button class="btn" id="editPen">✎ Desenhar</button><button class="btn" id="editComment">▧ Comentário</button><button class="btn" id="editImage">▧ Imagem</button><input id="editImageInput" hidden type="file" accept="image/png,image/jpeg"></div>
+<div class="actions pdf-tools"><label>Tamanho <input class="control" id="editSize" type="number" min="6" max="72" value="14" style="width:75px"></label><label>Cor <input type="color" id="editColor" value="#e43c50" aria-label="Cor da anotação"></label><button class="btn" id="editUndo">↶ Desfazer</button><button class="btn" id="editClear">Limpar anotações da página</button><button class="btn primary" id="editSave" disabled>↓ Salvar PDF editado</button></div>
+<p class="edit-help" id="editInfo" role="status" aria-live="polite">Abra um PDF para iniciar a edição visual. Requer conexão para carregar pdf-lib na primeira utilização.</p></section>
+<div class="doc-grid"><div><div id="pdfStage" class="pdf-stage"><p class="small">O documento aparecerá aqui.</p><span class="edit-stage" id="editStage"><canvas id="pdfCanvas" hidden></canvas><canvas id="searchOverlay32" hidden aria-hidden="true"></canvas><canvas id="editOverlay" class="edit-overlay" hidden aria-label="Camada de edição de PDF"></canvas></span></div></div>
+<div><h3 class="section-title">Texto editável / conversão</h3><p class="small">Para PDF com texto selecionável, use “Extrair texto do PDF”. Em PDF escaneado, importe páginas para o scanner e utilize o OCR antes de converter.</p><div class="actions" style="margin-bottom:9px"><button class="btn" id="pdfExtract" disabled>Extrair texto do PDF</button><button class="btn" id="loadOCRText">Usar OCR do scanner</button></div><textarea class="control doc-edit" id="docEditor" aria-label="Editor de texto do documento" placeholder="Texto extraído ou de documento Word para editar aqui…"></textarea>
+<div class="actions" style="margin-top:10px"><button class="btn primary" id="saveDocx">↓ Converter para Word (.docx)</button><button class="btn" id="saveEditorPDF">↓ Criar PDF do texto editado</button><button class="btn" id="printEditor">Imprimir / Salvar PDF</button></div><p class="doc-note">Edição disponível no texto extraído, não diretamente sobre os elementos internos do PDF original. A conversão reconstrói um documento de texto e pode perder fontes, imagens, colunas, tabelas e paginação. Para manter aparência do original, use o scanner e exporte como PDF de imagens.</p></div></div>
+<p id="docStatus" class="doc-status" role="status" aria-live="polite">Pronto para abrir documentos.</p></section><section class="panel pad" id="reviewPanel32" style="margin-top:15px" aria-label="Revisão de OCR">
+<h3 class="section-title">🛡 Revisão orientada do OCR — 3.3</h3>
+<p class="small">A confiança é estimada pelo motor OCR, não representa probabilidade comprovada de acerto. Confira números, valores, nomes e palavras críticas no documento original.</p>
+<div class="review32"><button class="btn" id="reviewPrevious32">← Página anterior</button><button class="btn" id="reviewNext32">Próxima página →</button><button class="btn" id="reviewNeeds32">Próxima com revisão prioritária</button></div>
+<p id="reviewStatus32" class="small" role="status">Importe uma imagem ou execute OCR.</p><div class="bar32"><span id="reviewBar32"></span></div>
+<label class="checkbox"><input type="checkbox" id="scanHighlights32" checked> Destacar palavras encontradas na imagem digitalizada (quando houver coordenadas OCR)</label>
+<div class="actions" style="margin-top:12px"><input id="scanFind32" type="search" class="control" placeholder="Localizar no texto OCR…" aria-label="Localizar no OCR" style="max-width:340px"><button class="btn" id="scanSearch32">Localizar no OCR</button><button class="btn" id="scanClear32">Limpar destaque</button><button class="btn" id="reviewExport32">↓ Relatório de revisão CSV</button></div>
+<p id="scanHits32" class="small" role="status">A pesquisa OCR não depende do conteúdo textual selecionável do PDF.</p></section>
+<footer class="footer">© 2026 Nailson Rodrigues de Lima • ScanSoft v5.1 • Execução local no navegador. A câmera nativa pode funcionar ao abrir o HTML localmente, conforme navegador e dispositivo. A câmera ao vivo normalmente exige HTTPS ou localhost. Os arquivos são tratados localmente.</footer></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), state={pages:[],selected:-1,stream:null,cropping:false,rect:null,drag:null};
+const setStatus=(s,error=false)=>{$('status').textContent=s;$('status').style.color=error?'#ffc0c0':'#a1edda'};
+const params=()=>({mode:$('mode').value,brightness:+$('brightness').value,contrast:+$('contrast').value,threshold:+$('threshold').value,sharp:$('sharp').checked});
+function enable(){let has=state.selected>=0, count=state.pages.length;for(const id of ['rotate','crop','original','remove','resetFilters','savePDF','saveSearchPDF','savePNG','saveJPG'])$(id).disabled=!has;$('applyCrop').disabled=!(has&&state.cropping&&state.rect&&state.rect.w>5&&state.rect.h>5);$('cancelCrop').disabled=!state.cropping;$('moveLeft').disabled=!has||state.selected===0;$('moveRight').disabled=!has||state.selected===count-1;$('clear').disabled=!count;$('take').disabled=!state.stream;$('stopCamera').disabled=!state.stream;$('doOCR').disabled=!has||ocrBusy;$('ocrAll').disabled=!count||ocrBusy;$('ocrEngine').disabled=ocrBusy;$('ocrLanguage').disabled=ocrBusy;$('ocrSource').disabled=ocrBusy;$('ocrQuality').disabled=ocrBusy;$('saveText').disabled=!count||ocrBusy;$('copyText').disabled=!$('ocrText').value;$('pageCount').textContent=`(${count})`}
+function loadImage(url){return new Promise((resolve,reject)=>{let img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error('Falha ao ler imagem.'));img.src=url})}
+function canvasForImage(img){let c=document.createElement('canvas');c.width=img.naturalWidth||img.width;c.height=img.naturalHeight||img.height;c.getContext('2d',{willReadFrequently:true}).drawImage(img,0,0);return c}
+async function addBlob(blob,name){if(!blob||!blob.type.startsWith('image/'))throw Error('Arquivo não é uma imagem compatível.');let url=URL.createObjectURL(blob);try{let img=await loadImage(url);if(!img.naturalWidth||!img.naturalHeight)throw Error('Imagem vazia.');let c=canvasForImage(img);let base=c.toDataURL('image/png');state.pages.push({name:name||`Página ${state.pages.length+1}`,base,work:base,settings:{mode:'none',brightness:0,contrast:0,threshold:150},ocr:''});selectPage(state.pages.length-1)}finally{URL.revokeObjectURL(url)}}
+function selected(){return state.pages[state.selected]}
+function syncParams(){let p=selected()?.settings||{mode:'none',brightness:0,contrast:0,threshold:150};$('mode').value=p.mode;$('sharp').checked=!!p.sharp;for(const [key,id,out] of [['brightness','brightness','bv'],['contrast','contrast','cv'],['threshold','threshold','tv']]){$(id).value=p[key];$(out).textContent=p[key]}}
+function selectPage(i){if(i<0||i>=state.pages.length){state.selected=-1;syncParams();render();return}stopCamera();state.selected=i;state.cropping=false;state.rect=null;syncParams();$('ocrText').value=selected().ocr||'';updateOcrAudit();render()}
+function showElement(which){for(const id of ['video','preview','empty'])$(id).classList.toggle('hidden',id!==which);$('resolution').classList.toggle('hidden',which==='empty');$('cropHint').classList.toggle('hidden',!state.cropping)}
+let renderToken=0;
+async function render(){enable();let token=++renderToken;renderThumbs();if(state.stream){showElement('video');$('resolution').textContent=`Câmera: ${$('video').videoWidth||'?'} × ${$('video').videoHeight||'?'}`;return}let p=selected();if(!p){showElement('empty');return}try{let c=await createProcessed(p,false);if(token!==renderToken)return;let pv=$('preview');pv.width=c.width;pv.height=c.height;pv.getContext('2d').drawImage(c,0,0);showElement('preview');$('resolution').textContent=`${c.width} × ${c.height} px`;if(state.cropping&&state.rect)drawCrop()}catch(e){setStatus(e.message,true)}}
+function renderThumbs(){const host=$('thumbs');host.textContent='';if(!state.pages.length){host.innerHTML='<span class="muted">Nenhuma página adicionada.</span>';return}state.pages.forEach((p,i)=>{let b=document.createElement('button');b.type='button';b.className='thumb'+(i===state.selected?' active':'');let img=document.createElement('img');img.src=p.work;img.alt='Miniatura página '+(i+1);let label=document.createElement('span');label.textContent=`${i+1}. ${p.name}`;b.append(img,label);b.onclick=()=>selectPage(i);host.append(b)})}
+async function createProcessed(page,useOriginal){let img=await loadImage(useOriginal?page.base:page.work),c=canvasForImage(img);if(useOriginal)return c;let s=page.settings;if(s.mode==='none'&&!s.brightness&&!s.contrast&&!s.sharp)return c;let ctx=c.getContext('2d',{willReadFrequently:true}),d=ctx.getImageData(0,0,c.width,c.height),a=d.data,con=(259*(s.contrast+255))/(255*(259-s.contrast));for(let i=0;i<a.length;i+=4){let r=a[i],g=a[i+1],b=a[i+2];if(s.mode==='gray'||s.mode==='bw'){r=g=b=.2126*r+.7152*g+.0722*b}if(s.mode==='document'){let v=Math.min(r,g,b);r=r*.9+v*.1;g=g*.9+v*.1;b=b*.9+v*.1}r=Math.max(0,Math.min(255,con*(r-128)+128+s.brightness));g=Math.max(0,Math.min(255,con*(g-128)+128+s.brightness));b=Math.max(0,Math.min(255,con*(b-128)+128+s.brightness));if(s.mode==='bw'){let v=(r+g+b)/3>=s.threshold?255:0;r=g=b=v}a[i]=r;a[i+1]=g;a[i+2]=b}ctx.putImageData(d,0,0);if(s.sharp){let source=ctx.getImageData(0,0,c.width,c.height),target=ctx.createImageData(c.width,c.height),a=source.data,b=target.data,w=c.width,h=c.height;b.set(a);for(let y=1;y<h-1;y++){for(let x=1;x<w-1;x++){let i=(y*w+x)*4;for(let k=0;k<3;k++){let v=5*a[i+k]-a[i-4+k]-a[i+4+k]-a[i-w*4+k]-a[i+w*4+k];b[i+k]=Math.max(0,Math.min(255,Math.round(.25*v+.75*a[i+k])))}}}ctx.putImageData(target,0,0)}return c}
+async function startCamera(){try{stopCamera();if(!navigator.mediaDevices?.getUserMedia)throw Error('Câmera ao vivo indisponível neste contexto. Experimente Câmera padrão.');let size=$('captureSize').value;let wh=size==='hd'?[1280,720]:size==='fullhd'?[1920,1080]:[4096,3072];const constraints={audio:false,video:{facingMode:{ideal:$('cameraFacing').value},width:{ideal:wh[0]},height:{ideal:wh[1]}}};let stream=await navigator.mediaDevices.getUserMedia(constraints);state.stream=stream;let video=$('video');video.srcObject=stream;await video.play();state.cropping=false;showElement('video');render();setStatus('Câmera ativa. Posicione o documento e toque em Capturar.')}catch(e){setStatus('Não foi possível abrir a câmera: '+e.message+'. Use HTTPS/localhost e permita acesso.',true);stopCamera();render()}}
+function stopCamera(){if(state.stream){state.stream.getTracks().forEach(t=>t.stop());state.stream=null}$('video').srcObject=null;enable()}
+$('nativeCamera').onclick=()=>$('nativeCapture').click();$('nativeCapture').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{await addBlob(file,'Foto '+(state.pages.length+1));setStatus('Foto importada pela câmera padrão. Confira enquadramento e nitidez.')}catch(err){setStatus('Erro na foto: '+err.message,true)}finally{e.target.value=''}});$('startCamera').onclick=startCamera;$('stopCamera').onclick=()=>{stopCamera();render();setStatus('Câmera fechada.')};$('take').onclick=async()=>{let v=$('video');if(!state.stream||!v.videoWidth)return setStatus('Câmera ainda não preparada.',true);let c=document.createElement('canvas');let photo=null;try{let track=state.stream.getVideoTracks()[0];if(typeof ImageCapture!=='undefined'&&track){photo=await new ImageCapture(track).takePhoto()}}catch(_e){}if(photo){try{let bitmap=await createImageBitmap(photo);c.width=bitmap.width;c.height=bitmap.height;c.getContext('2d').drawImage(bitmap,0,0);bitmap.close?.()}catch(_e){photo=null}}if(!photo){c.width=v.videoWidth;c.height=v.videoHeight;c.getContext('2d').drawImage(v,0,0)}let data=c.toDataURL('image/png');let n=state.pages.length+1;state.pages.push({name:`Captura ${n}`,base:data,work:data,settings:{mode:'none',brightness:0,contrast:0,threshold:150},ocr:''});stopCamera();state.selected=state.pages.length-1;syncParams();render();setStatus(`Página ${n} capturada com ${c.width} × ${c.height} pixels. Abra a câmera novamente para outra captura.`);};
+$('upload').onclick=()=>$('files').click();$('files').onchange=async e=>{let files=[...e.target.files];if(!files.length)return;setStatus(`Importando ${files.length} imagem(ns)...`);let failures=0;for(const f of files){try{await addBlob(f,f.name)}catch(err){failures++;setStatus(`Falha em ${f.name}: ${err.message}`,true)}}$('files').value='';setStatus(`${files.length-failures} imagem(ns) adicionada(s).${failures?' Falhas: '+failures:''}`,!!failures)};
+for(const id of ['mode','brightness','contrast','threshold','sharp'])$(id).addEventListener('input',()=>{let p=selected();if(!p)return;p.settings=params();for(const [a,b] of [['brightness','bv'],['contrast','cv'],['threshold','tv']])$(b).textContent=$(a).value;render()});
+$('resetFilters').onclick=()=>{selected().settings={mode:'none',brightness:0,contrast:0,threshold:150,sharp:false};syncParams();render()};
+$('rotate').onclick=async()=>{let p=selected(),img=await loadImage(p.work),c=document.createElement('canvas');c.width=img.naturalHeight;c.height=img.naturalWidth;let g=c.getContext('2d');g.translate(c.width,0);g.rotate(Math.PI/2);g.drawImage(img,0,0);p.work=c.toDataURL('image/png');p.ocrWords=[];p.ocrEdited=true;state.rect=null;updateOcrAudit();render()};
+$('original').onclick=()=>{let p=selected();p.work=p.base;p.settings={mode:'none',brightness:0,contrast:0,threshold:150,sharp:false};state.cropping=false;state.rect=null;p.ocrWords=[];p.ocrEdited=true;syncParams();updateOcrAudit();render();setStatus('Original restaurado nesta página.')};
+$('remove').onclick=()=>{let index=state.selected;state.pages.splice(index,1);selectPage(Math.min(index,state.pages.length-1));setStatus('Página excluída.')};
+$('clear').onclick=()=>{if(!confirm('Excluir todas as páginas desta sessão?'))return;state.pages=[];selectPage(-1);$('ocrText').value='';setStatus('Sessão limpa.')};
+for(const [id,delta] of [['moveLeft',-1],['moveRight',1]])$(id).onclick=()=>{let i=state.selected,j=i+delta;[state.pages[i],state.pages[j]]=[state.pages[j],state.pages[i]];state.selected=j;render()};
+$('crop').onclick=()=>{state.cropping=true;state.rect=null;render();setStatus('Arraste sobre a imagem para selecionar a área do recorte.')};
+$('cancelCrop').onclick=()=>{state.cropping=false;state.rect=null;render()};
+function eventXY(e){let c=$('preview'),r=c.getBoundingClientRect();return{x:Math.max(0,Math.min(c.width,(e.clientX-r.left)*c.width/r.width)),y:Math.max(0,Math.min(c.height,(e.clientY-r.top)*c.height/r.height))}}
+$('preview').addEventListener('pointerdown',e=>{if(!state.cropping)return;let pt=eventXY(e);state.drag=pt;state.rect=null;$('preview').setPointerCapture(e.pointerId)});
+$('preview').addEventListener('pointermove',e=>{if(!state.drag)return;let a=state.drag,b=eventXY(e);state.rect={x:Math.min(a.x,b.x),y:Math.min(a.y,b.y),w:Math.abs(a.x-b.x),h:Math.abs(a.y-b.y)};renderCropOverlay();enable()});
+$('preview').addEventListener('pointerup',()=>{state.drag=null;enable()});$('preview').addEventListener('pointercancel',()=>{state.drag=null});
+let cropRenderToken=0;async function renderCropOverlay(){let t=++cropRenderToken,p=selected();if(!p)return;let c=await createProcessed(p,false);if(t!==cropRenderToken||!state.cropping)return;let pv=$('preview');pv.getContext('2d').drawImage(c,0,0);drawCrop()}
+function drawCrop(){let r=state.rect;if(!r)return;let c=$('preview'),g=c.getContext('2d');g.fillStyle='#0008';g.fillRect(0,0,c.width,r.y);g.fillRect(0,r.y,r.x,r.h);g.fillRect(r.x+r.w,r.y,c.width-r.x-r.w,r.h);g.fillRect(0,r.y+r.h,c.width,c.height-r.y-r.h);g.strokeStyle='#4effd6';g.lineWidth=Math.max(2,c.width/800);g.strokeRect(r.x,r.y,r.w,r.h)}
+$('applyCrop').onclick=async()=>{let p=selected(),r=state.rect;if(!r||r.w<5||r.h<5)return;let img=await loadImage(p.work),c=document.createElement('canvas');c.width=Math.round(r.w);c.height=Math.round(r.h);c.getContext('2d').drawImage(img,r.x,r.y,r.w,r.h,0,0,c.width,c.height);p.work=c.toDataURL('image/png');p.ocrWords=[];p.ocrEdited=true;state.cropping=false;state.rect=null;render();setStatus('Recorte aplicado; original intacto.')};
+let ocrBusy=false;
+$('ocrSupport').textContent=typeof window.TextDetector==='function'?'Há suporte ao OCR nativo experimental neste navegador. Tesseract.js também está disponível por carregamento online.':'OCR nativo indisponível aqui. Use Tesseract.js, que requer internet para carregar componentes e modelos.';
+$('ocrText').addEventListener('input',()=>{if(selected()){selected().ocr=$('ocrText').value;selected().ocrWords=[];selected().ocrEdited=true}updateOcrAudit();enable()});
+const ocrMsg=(message,percentage)=>{$('ocrProgressText').textContent=message;if(typeof percentage==='number')$('ocrProgress').value=Math.round(percentage*100)};
+let tesseractPromise=null,tesseractMode='';
+function loadTesseract(){
+ const offline=$('ocrSource').value==='offline';
+ if(window.Tesseract?.createWorker&&tesseractMode===(offline?'offline':'online'))return Promise.resolve(window.Tesseract);
+ if(tesseractPromise)return tesseractPromise;
+ tesseractPromise=new Promise((resolve,reject)=>{
+  let script=document.createElement('script');
+  script.src=offline?'./ocr/tesseract.min.js':'https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';
+  script.onload=()=>window.Tesseract?.createWorker?(tesseractMode=offline?'offline':'online',resolve(window.Tesseract)):reject(Error('Biblioteca OCR não inicializada.'));
+  script.onerror=()=>reject(Error(offline?'Pacote local ausente. Confira a pasta ocr e abra por localhost se necessário.':'Falha no carregamento online. Confira a conexão.'));
+  document.head.append(script);
+ }).catch(e=>{tesseractPromise=null;throw e});
+ return tesseractPromise;
+}
+function updateOcrAudit(){
+ const p=selected(),el=$('ocrAudit');if(!el)return;
+ if(!p){el.textContent='QA OCR: nenhuma página selecionada.';return}
+ if(p.ocrEdited){el.textContent='Texto editado: camada de palavras posicionadas invalidada. O PDF usará camada textual aproximada.';return}
+ if(!p.ocr){el.textContent='QA OCR: reconhecimento ainda não realizado.';return}
+ const c=p.ocrConfidence;
+ el.textContent=Number.isFinite(c)?`Confiança estimada do motor: ${Math.round(c)}% — ${c<65?'revisão prioritária':c<85?'revisão recomendada':'verificação por amostragem'}. ${p.ocrWords?.length||0} palavras posicionadas.`:'Reconhecimento concluído; motor não informou confiança. Faça revisão.';
+}
+function enhancedCanvas(source){
+ // Reconhecimento em resolução útil, sem alterar a imagem original ou a exportação.
+ const minWidth=1800,maxPixels=6500000,scale=Math.min(2.5,Math.max(1,minWidth/source.width),Math.sqrt(maxPixels/(source.width*source.height)));
+ if(scale<=1.01)return source;
+ const c=document.createElement('canvas');c.width=Math.round(source.width*scale);c.height=Math.round(source.height*scale);
+ const g=c.getContext('2d');g.imageSmoothingEnabled=true;g.imageSmoothingQuality='high';g.drawImage(source,0,0,c.width,c.height);return c;
+}
+function extractWords(data){
+ const words=[];function visit(obj){if(!obj||typeof obj!=='object')return;
+ if(Array.isArray(obj)){obj.forEach(visit);return}
+ if(typeof obj.text==='string'&&obj.bbox&&typeof obj.bbox.x0==='number'&&!obj.words&&!obj.lines&&!obj.paragraphs&&!obj.blocks){
+  if(obj.text.trim())words.push({text:obj.text.trim(),bbox:obj.bbox,confidence:Number(obj.confidence)});return;
+ }
+ for(const k of ['blocks','paragraphs','lines','words'])if(obj[k])visit(obj[k]);
+ }visit(data.blocks||data.words||[]);return words;
+}
+function ocrScore(data){return Number.isFinite(Number(data.confidence))?Number(data.confidence):-1}
+
+async function localOCR40(canvas,lang){
+ const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Não foi possível preparar imagem.')),'image/png'));
+ if(blob.size>14*1024*1024)throw Error('Imagem grande demais para o OCR local (máximo 14 MB).');
+ const r=await fetch('/api/ocr',{method:'POST',headers:{'Content-Type':'image/png','X-ScanSoft-Lang':lang},body:blob});
+ let result=await r.json().catch(()=>({error:'Resposta inválida do motor local.'}));
+ if(!r.ok)throw Error(result.error||'Motor offline indisponível. Inicie o servidor local conforme o manual.');
+ return result;
+}
+async function offlineCheck40(){let el=document.getElementById('offline40');try{let r=await fetch('/api/status');if(!r.ok)throw Error();let x=await r.json();el.textContent=(x.ocrInstalled?'Motor OCR local pronto':'Servidor ativo, mas Tesseract não está instalado')+' • idiomas: '+x.languages.join(', ');el.style.color=x.ocrInstalled?'#087b54':'#a05229'}catch(e){el.textContent='Motor local não detectado — abra pelo endereço http://127.0.0.1:8740 após iniciar o servidor.';el.style.color='#a05229'}}
+async function offlinePdf40(file){
+ if(!file||file.size>40*1024*1024)throw Error('PDF máximo para importação offline: 40 MB.');
+ let r=await fetch('/api/pdf-pages',{method:'POST',headers:{'Content-Type':'application/pdf'},body:file});
+ let data=await r.json().catch(()=>({error:'Não foi possível ler a resposta.'}));if(!r.ok)throw Error(data.error||'Falha ao importar PDF.');
+ for(let [i,b64] of data.pages.entries()){let raw=atob(b64),bytes=new Uint8Array(raw.length);for(let j=0;j<raw.length;j++)bytes[j]=raw.charCodeAt(j);await addBlob(new Blob([bytes],{type:'image/png'}),`PDF ${i+1}`)}
+ return data.pages.length;
+}
+async function runOCR(all, onlyIndices=null){
+ if(ocrBusy||!state.pages.length)return;
+ const engine=$('ocrEngine').value,lang=$('ocrLanguage').value,accurate=$('ocrQuality').value==='accurate';
+ if(engine==='tesseract'&&$('ocrSource').value==='online'&&!confirm('O motor e os modelos serão baixados da internet, mas as imagens serão reconhecidas localmente. Continuar?'))return;
+ ocrBusy=true;$('ocrProgress').classList.remove('hidden');$('ocrProgress').value=0;enable();
+ const indices=onlyIndices??(all?state.pages.map((_,i)=>i):[state.selected]);let worker=null,done=0;
+ try{
+  if(engine==='tesseract'){
+   ocrMsg('Carregando mecanismo OCR…',0);const lib=await loadTesseract();
+   worker=await lib.createWorker(lang,1,{...($('ocrSource').value==='offline'?{workerPath:'./ocr/worker.min.js',corePath:'./ocr/',langPath:'./ocr/lang'}:{}),logger:m=>{if(typeof m.progress==='number')ocrMsg((m.status||'OCR')+` — ${done+1}/${indices.length}`,m.progress)}});
+  }else if(engine==='native'&&typeof window.TextDetector!=='function')throw Error('OCR nativo não suportado. Escolha Tesseract local ou Tesseract.js.');
+  for(let j=0;j<indices.length;j++){
+   const index=indices[j],page=state.pages[index];ocrMsg(`Reconhecendo página ${j+1}/${indices.length}…`,0);
+   const base=await createProcessed(page,false),canvas=enhancedCanvas(base);let text='',words=[],confidence=null;
+   if(engine==='local'){const offlineResult=await localOCR40(canvas,lang);text=offlineResult.text;confidence=offlineResult.confidence;words=offlineResult.words.map(w=>({...w,bbox:{x0:w.bbox.x0*base.width/canvas.width,y0:w.bbox.y0*base.height/canvas.height,x1:w.bbox.x1*base.width/canvas.width,y1:w.bbox.y1*base.height/canvas.height}}));}
+   else if(engine==='native'){let lines=await new window.TextDetector().detect(canvas);text=lines.map(line=>line.rawValue||'').join('\n')}
+   else{
+    let first=await worker.recognize(canvas,{}, {blocks:true}),best=first?.data||{};
+    if(accurate){
+     const secondCanvas=document.createElement('canvas');secondCanvas.width=canvas.width;secondCanvas.height=canvas.height;
+     const g=secondCanvas.getContext('2d',{willReadFrequently:true});g.drawImage(canvas,0,0);
+     const pixels=g.getImageData(0,0,secondCanvas.width,secondCanvas.height);const a=pixels.data;
+     for(let k=0;k<a.length;k+=4){const gray=.299*a[k]+.587*a[k+1]+.114*a[k+2];const high=gray<145?Math.max(0,gray*.67):Math.min(255,gray*1.12);a[k]=a[k+1]=a[k+2]=high}g.putImageData(pixels,0,0);
+     ocrMsg(`Comparando leitura alternativa — página ${j+1}/${indices.length}`,0);
+     const other=(await worker.recognize(secondCanvas,{}, {blocks:true}))?.data||{};
+     // Confiança é somente um indicador do motor, não taxa real de acerto.
+     if((other.text||'').trim()&&ocrScore(other)>ocrScore(best)+2)best=other;
+    }
+    text=best.text||'';confidence=ocrScore(best);words=extractWords(best);
+    const f=best===first?.data?canvas:canvas; // coordenadas das duas leituras usam mesmas dimensões
+    words=words.map(w=>({...w,bbox:{x0:w.bbox.x0*base.width/f.width,y0:w.bbox.y0*base.height/f.height,x1:w.bbox.x1*base.width/f.width,y1:w.bbox.y1*base.height/f.height}}));
+   }
+   page.ocr=text.trim();page.ocrWords=words;page.ocrImageSize={width:base.width,height:base.height};page.ocrConfidence=confidence;page.ocrEdited=false;done++;
+   if(index===state.selected){$('ocrText').value=page.ocr;updateOcrAudit();enable()}
+  }
+  setStatus(`${done} página(s) reconhecida(s). Confira as páginas sinalizadas pelo QA.`);ocrMsg(`OCR finalizado: ${done} página(s).`,1);
+ }catch(e){setStatus('OCR não concluído: '+e.message,true);ocrMsg('Falha: '+e.message)}
+ finally{if(worker){try{await worker.terminate()}catch(_){}}ocrBusy=false;enable()}
+}
+$('doOCR').onclick=()=>runOCR(false);
+$('ocrAll').onclick=()=>runOCR(true);
+$('saveText').onclick=()=>{
+ const text=state.pages.map((p,i)=>`PÁGINA ${i+1} — ${p.name}\n${p.ocr||'[Sem texto reconhecido]'}`).join('\n\n'+'-'.repeat(40)+'\n\n');
+ blobDownload(new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'}),'scansoft-ocr.txt');
+ setStatus('TXT UTF-8 exportado.');
+};
+$('copyText').onclick=async()=>{try{await navigator.clipboard.writeText($('ocrText').value);setStatus('Texto copiado.')}catch(e){$('ocrText').select();setStatus('Selecione e copie o texto manualmente.',true)}};
+const blobDownload=(blob,name)=>{let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000)};
+const canvasBlob=(c,type,quality)=>new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(Error('Não foi possível codificar imagem.')),type,quality));
+async function outputs(type){let original=$('exportOriginal').checked,quality=+$('quality').value,res=[];for(let i=0;i<state.pages.length;i++){let c=await createProcessed(state.pages[i],original);if(type==='image/jpeg'){let white=document.createElement('canvas');white.width=c.width;white.height=c.height;let ctx=white.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.drawImage(c,0,0);c=white}let blob=await canvasBlob(c,type,quality);res.push({name:`pagina-${String(i+1).padStart(3,'0')}.${type==='image/png'?'png':'jpg'}`,blob,width:c.width,height:c.height})}return res}
+const u16=(v)=>[v&255,(v>>>8)&255],u32=(v)=>[v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255];
+let crcTable;function crc32(bytes){if(!crcTable){crcTable=Array.from({length:256},(_,n)=>{for(let k=0;k<8;k++)n=(n&1)?0xedb88320^(n>>>1):n>>>1;return n>>>0})}let crc=0xffffffff;for(let b of bytes)crc=crcTable[(crc^b)&255]^(crc>>>8);return (crc^0xffffffff)>>>0}
+async function buildZip(files){let chunks=[],directory=[],offset=0,enc=new TextEncoder();for(let f of files){let data=new Uint8Array(await f.blob.arrayBuffer()),name=enc.encode(f.name),crc=crc32(data),local=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...name]);chunks.push(local,data);directory.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(0),...u16(0),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(offset),...name]));offset+=local.length+data.length}let dirLength=directory.reduce((s,c)=>s+c.length,0);return new Blob([...chunks,...directory,new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(dirLength),...u32(offset),...u16(0)])],{type:'application/zip'})}
+async function saveImages(type){try{setStatus('Preparando imagens para exportação...');let files=await outputs(type);if(files.length===1)blobDownload(files[0].blob,files[0].name);else blobDownload(await buildZip(files),'scansoft-paginas.zip');setStatus(`${files.length} página(s) exportada(s).`)}catch(e){setStatus('Falha na exportação: '+e.message,true)}}
+$('savePNG').onclick=()=>saveImages('image/png');$('saveJPG').onclick=()=>saveImages('image/jpeg');
+// PDF A4 com imagens e camada de texto invisível opcional. O texto não tem coordenadas de OCR.
+function winAnsiHex(input){
+ const extensions={'€':128,'‚':130,'ƒ':131,'„':132,'…':133,'†':134,'‡':135,'ˆ':136,'‰':137,'Š':138,'‹':139,'Œ':140,'Ž':142,'‘':145,'’':146,'“':147,'”':148,'•':149,'–':150,'—':151,'˜':152,'™':153,'š':154,'›':155,'œ':156,'ž':158,'Ÿ':159};
+ let arr=[];for(const c of input){let code=c.codePointAt(0);arr.push(code<=255?code:(extensions[c]??63))}return arr.map(v=>v.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+function pdfTextLayer(value){
+ const lines=(value||'').replace(/\r/g,'').split('\n').flatMap(t=>t.match(/.{1,85}/gu)||['']);
+ let ops=['BT','/F1 8 Tf','3 Tr','10 TL','1 0 0 1 20 815 Tm'];
+ for(let i=0;i<lines.length;i++){
+  if(i&&i%78===0){ops.push('1 0 0 1 20 815 Tm')}else if(i){ops.push('T*')}
+  ops.push('<'+winAnsiHex(lines[i])+'> Tj');
+ }
+ ops.push('ET');return ops.join('\n')+'\n';
+}
+function pdfPositionedWords(page,image,scale,x,y){
+ if(!page?.ocrWords?.length||page.ocrEdited||!page.ocrImageSize)return '';
+ const sx=image.width/page.ocrImageSize.width,sy=image.height/page.ocrImageSize.height;
+ const ops=['BT','3 Tr'];let count=0;
+ for(const word of page.ocrWords){
+  const b=word.bbox;if(!b||!word.text||count++>10000)continue;
+  const left=x+b.x0*sx*scale,top=y+(image.height-b.y1*sy)*scale;
+  const fontSize=Math.max(3,Math.min(48,(b.y1-b.y0)*sy*scale*.84));
+  if(!Number.isFinite(left+top+fontSize))continue;
+  ops.push(`/F1 ${fontSize.toFixed(2)} Tf`,`1 0 0 1 ${left.toFixed(2)} ${top.toFixed(2)} Tm`,`<${winAnsiHex(word.text)}> Tj`);
+ }
+ ops.push('ET');return ops.join('\n')+'\n';
+}
+async function buildPDF(images,searchable=false){
+ let enc=new TextEncoder(),chunks=[],offsets=[0],pos=0;
+ function push(bytes){chunks.push(bytes);pos+=bytes.length}
+ function str(s){push(enc.encode(s))}
+ function obj(id,body){offsets[id]=pos;str(`${id} 0 obj\n${body}\nendobj\n`)}
+ str('%PDF-1.4\n%\xE2\xE3\xCF\xD3\n');
+ let kids=images.map((_,i)=>`${3+i*3} 0 R`).join(' ');
+ const fontId=3+images.length*3;
+ obj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+ obj(2,`<< /Type /Pages /Count ${images.length} /Kids [ ${kids} ] >>`);
+ for(let i=0;i<images.length;i++){
+  let img=images[i],page=3+i*3,imId=page+1,contentId=page+2,bytes=new Uint8Array(await img.blob.arrayBuffer());
+  let pw=595.28,ph=841.89,margin=14,scale=Math.min((pw-2*margin)/img.width,(ph-2*margin)/img.height),w=img.width*scale,h=img.height*scale,x=(pw-w)/2,y=(ph-h)/2;
+  obj(page,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /XObject << /Im${i} ${imId} 0 R >> /Font << /F1 ${fontId} 0 R >> >> /Contents ${contentId} 0 R >>`);
+  offsets[imId]=pos;
+  str(`${imId} 0 obj\n<< /Type /XObject /Subtype /Image /Width ${img.width} /Height ${img.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${bytes.length} >>\nstream\n`);
+  push(bytes);str('\nendstream\nendobj\n');
+  let commands=`q\n${w.toFixed(3)} 0 0 ${h.toFixed(3)} ${x.toFixed(3)} ${y.toFixed(3)} cm\n/Im${i} Do\nQ\n`;
+  if(searchable){const p=state.pages[i];commands+=p.ocrWords?.length&&!p.ocrEdited?pdfPositionedWords(p,img,scale,x,y):pdfTextLayer(p.ocr||'')}
+  let cb=enc.encode(commands);offsets[contentId]=pos;
+  str(`${contentId} 0 obj\n<< /Length ${cb.length} >>\nstream\n`);push(cb);str('endstream\nendobj\n');
+ }
+ obj(fontId,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>');
+ let start=pos,num=fontId;
+ str(`xref\n0 ${num+1}\n0000000000 65535 f \n`);
+ for(let i=1;i<=num;i++)str(`${String(offsets[i]).padStart(10,'0')} 00000 n \n`);
+ str(`trailer\n<< /Size ${num+1} /Root 1 0 R >>\nstartxref\n${start}\n%%EOF`);
+ return new Blob(chunks,{type:'application/pdf'});
+}
+async function exportPDF(searchable){
+ try{
+  if(searchable&&!state.pages.some(p=>(p.ocr||'').trim())){setStatus('Não há texto OCR. Reconheça ou digite o texto antes de gerar PDF pesquisável.',true);return}
+  setStatus('Preparando PDF...');let images=await outputs('image/jpeg');
+  blobDownload(await buildPDF(images,searchable),searchable?'scansoft-pesquisavel.pdf':'scansoft-documento.pdf');
+  setStatus(searchable?'PDF com camada de texto exportado. Revise a pesquisa e a fidelidade do conteúdo.':`PDF com ${images.length} página(s) gerado.`);
+ }catch(e){setStatus('Falha na geração do PDF: '+e.message,true)}
+}
+$('savePDF').onclick=()=>exportPDF(false);
+$('saveSearchPDF').onclick=()=>exportPDF(true);
+window.addEventListener('beforeunload',stopCamera);enable();
+
+// Localizador interno: busca sobre texto OCR ou transcrição de cada página.
+let findHits=[],findCursor=-1;
+const cleanMatch=(s,exact)=>exact?s:s.toLocaleLowerCase('pt-BR');
+function refreshFind(keep=false){
+ const query=$('findQuery').value,needle=cleanMatch(query,$('findExact').checked),last=keep?findHits[findCursor]:null;
+ findHits=[];findCursor=-1;
+ if(needle){state.pages.forEach((p,i)=>{const raw=p.ocr||'',hay=cleanMatch(raw,$('findExact').checked);let from=0,at=0;
+ while((at=hay.indexOf(needle,from))!==-1&&findHits.length<5000){findHits.push({page:i,start:at,end:at+query.length});from=at+Math.max(1,needle.length)};
+ });}
+ const result=$('findResults');result.textContent='';
+ if(last){const idx=findHits.findIndex(h=>h.page===last.page&&h.start===last.start);if(idx!==-1)findCursor=idx;}
+ $('findStatus').textContent=!query?'Digite uma palavra ou frase para procurar.':findHits.length?`${findHits.length} ocorrência(s) em ${new Set(findHits.map(h=>h.page)).size} página(s).${findHits.length===5000?' Limite de resultados atingido.':''}`:'Nenhuma ocorrência no texto disponível. Páginas ainda não reconhecidas não são pesquisadas.';
+ for(let i=0;i<Math.min(100,findHits.length);i++){const h=findHits[i],raw=state.pages[h.page].ocr||'';const btn=document.createElement('button');btn.type='button';btn.className='btn';btn.style.cssText='display:block;width:100%;text-align:left;margin:4px 0;font-size:12px;white-space:normal';btn.textContent=`Pág. ${h.page+1} · …${raw.slice(Math.max(0,h.start-28),Math.min(raw.length,h.end+40)).replace(/\s+/g,' ')}…`;btn.onclick=()=>goFind(i);result.append(btn)}
+ if(findHits.length>100){const more=document.createElement('p');more.className='small';more.textContent='Exibindo as primeiras 100 ocorrências. Use as setas para navegar por todas.';result.append(more)}
+}
+function goFind(i){if(!findHits.length)return;const target=(i+findHits.length)%findHits.length;const h=findHits[target];if(state.selected!==h.page)selectPage(h.page);findCursor=target;
+ const input=$('ocrText');input.focus();input.setSelectionRange(h.start,h.end);
+ const row=Math.max(0,(state.pages[h.page].ocr||'').slice(0,h.start).split('\n').length-1);input.scrollTop=row*18;
+ $('findStatus').textContent=`Ocorrência ${findCursor+1} de ${findHits.length} — página ${h.page+1}. A palavra está selecionada no texto OCR.`;
+}
+$('findQuery').addEventListener('input',()=>refreshFind());$('findExact').addEventListener('change',()=>refreshFind(true));
+$('findNext').onclick=()=>goFind(findCursor+1);$('findPrevious').onclick=()=>goFind(findCursor-1);
+$('findClear').onclick=()=>{$('findQuery').value='';refreshFind();$('findQuery').focus()};
+$('ocrText').addEventListener('input',()=>queueMicrotask(()=>refreshFind(true)));
+// Ao final de cada reconhecimento, atualizar o índice de busca sem interferir no OCR.
+const previousOcrRunner=$('doOCR').onclick;
+$('doOCR').onclick=async()=>{await previousOcrRunner();refreshFind(true)};
+const previousBatchRunner=$('ocrAll').onclick;
+$('ocrAll').onclick=async()=>{await previousBatchRunner();refreshFind(true)};
+// Mudanças de páginas (inclusive exclusões, restaurações e importação) atualizam o índice.
+const previousSelectPage=selectPage;
+selectPage=function(i){previousSelectPage(i);if($('findQuery').value)refreshFind(true)};
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='f'&&document.activeElement!==$('ocrText')){e.preventDefault();$('findQuery').focus();$('findQuery').select()}else if(e.key==='Enter'&&document.activeElement===$('findQuery')){e.preventDefault();goFind(findCursor+(e.shiftKey?-1:1))}});
+
+/* Leitor de documentos ScanSoft 2.0. Bibliotecas sob demanda, sem transferência de arquivos. */
+const docState={pdf:null,pdfData:null,page:1,source:null,sourceName:'',searchHits:[],searchIndex:0,renderSeq:0};
+const docMsg=(msg,err=false)=>{const el=$('docStatus');el.textContent=msg;el.style.color=err?'#ac2340':'#225883'};
+function loadDocLib(url,check){return new Promise((resolve,reject)=>{if(check())return resolve();const script=document.createElement('script');script.src=url;script.onload=()=>check()?resolve():reject(new Error('Biblioteca carregada, mas indisponível.'));script.onerror=()=>reject(new Error('Não foi possível carregar a biblioteca externa. Verifique a internet.'));document.head.append(script)})}
+async function ensurePdfJS(){await loadDocLib('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',()=>!!window.pdfjsLib);window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'}
+async function ensureMammoth(){await loadDocLib('https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.9.0/mammoth.browser.min.js',()=>!!window.mammoth)}
+function pdfButtons(){const yes=!!docState.pdf;for(let id of ['pdfExtract','pdfToScanner'])$(id).disabled=!yes;$('pdfPrev').disabled=!yes||docState.page<=1;$('pdfNext').disabled=!yes||docState.page>=docState.pdf.numPages;$('downloadSource').disabled=!docState.source;$('pdfCounter').textContent=yes?`Página ${docState.page} de ${docState.pdf.numPages}`:'Nenhum PDF aberto'}
+async function showPdfPage(){if(!docState.pdf)return;const seq=++docState.renderSeq,page=await docState.pdf.getPage(docState.page),zoom=+$('pdfZoom').value,v=page.getViewport({scale:zoom});if(seq!==docState.renderSeq)return;const canvas=$('pdfCanvas'),ctx=canvas.getContext('2d');canvas.width=Math.ceil(v.width);canvas.height=Math.ceil(v.height);canvas.hidden=false;await page.render({canvasContext:ctx,viewport:v}).promise;$('pdfStage').querySelector('p')?.remove();pdfButtons()}
+$('openPdf').onclick=()=>$('pdfInput').click();$('openWord').onclick=()=>$('wordInput').click();
+$('pdfInput').onchange=async e=>{const file=e.target.files?.[0];e.target.value='';if(!file)return;try{if(file.size>180*1024*1024)throw Error('PDF maior que 180 MB: processamento no navegador pode esgotar a memória.');docMsg('Carregando PDF…');await ensurePdfJS();const bytes=new Uint8Array(await file.arrayBuffer());const pdf=await window.pdfjsLib.getDocument({data:bytes.slice()}).promise;docState.pdf=pdf;docState.pdfData=bytes;docState.page=1;docState.source=file;docState.sourceName=file.name;docState.searchHits=[];docState.searchIndex=0;$('pdfFindInfo').textContent='';await showPdfPage();docMsg(`PDF aberto: ${file.name} — ${pdf.numPages} página(s).`)}catch(err){docMsg('Erro ao abrir PDF: '+err.message,true)}};
+$('wordInput').onchange=async e=>{const file=e.target.files?.[0];e.target.value='';if(!file)return;try{docMsg('Lendo arquivo Word…');await ensureMammoth();const data=await file.arrayBuffer(),result=await window.mammoth.extractRawText({arrayBuffer:data});$('docEditor').value=result.value;docState.source=file;docState.sourceName=file.name;docState.pdf=null;docState.pdfData=null;org.sources=[];org.order=[];org.selected.clear();orgList();$('pdfCanvas').hidden=true;pdfButtons();docMsg('Documento Word lido: '+file.name+'. Texto disponível para editar e exportar. '+(result.messages.length?'Alguns elementos podem ter sido omitidos.':''))}catch(err){docMsg('Erro ao ler .docx: '+err.message,true)}};
+$('downloadSource').onclick=()=>{if(docState.source)blobDownload(docState.source,docState.sourceName||'documento')};
+$('pdfPrev').onclick=()=>{if(docState.page>1){docState.page--;showPdfPage()}};$('pdfNext').onclick=()=>{if(docState.pdf&&docState.page<docState.pdf.numPages){docState.page++;showPdfPage()}};$('pdfZoom').onchange=()=>showPdfPage();
+async function pdfText(pageNum){const page=await docState.pdf.getPage(pageNum);const content=await page.getTextContent();return content.items.map(x=>x.str+(x.hasEOL?'\n':' ')).join('').trim()}
+$('pdfExtract').onclick=async()=>{if(!docState.pdf)return;try{let texts=[];for(let i=1;i<=docState.pdf.numPages;i++){docMsg(`Extraindo texto da página ${i}/${docState.pdf.numPages}…`);texts.push(await pdfText(i))}let value=texts.map((x,i)=>`[Página ${i+1}]\n${x}`).join('\n\n');$('docEditor').value=value;docMsg(value.replace(/\[Página \d+\]/g,'').trim()?'Texto extraído. Revise antes de converter.':'Nenhum texto selecionável encontrado. Para PDF escaneado, envie as páginas para o scanner e aplique OCR.')}catch(err){docMsg('Falha na extração: '+err.message,true)}};
+$('loadOCRText').onclick=()=>{const txt=state.pages.map((p,i)=>`[Página ${i+1}]\n${p.ocr||''}`).join('\n\n');$('docEditor').value=txt;docMsg('Texto OCR do scanner inserido no editor. Revise antes de converter.')};
+$('pdfSearch').onclick=async()=>{const q=$('pdfFind').value.trim().toLocaleLowerCase('pt-BR');if(!q||!docState.pdf){docMsg('Abra um PDF e digite o termo para localizar.',true);return}try{docState.searchHits=[];for(let i=1;i<=docState.pdf.numPages;i++){const content=(await pdfText(i)).toLocaleLowerCase('pt-BR');let at=0;while((at=content.indexOf(q,at))>=0){docState.searchHits.push(i);at+=Math.max(1,q.length);if(docState.searchHits.length>3000)break}if(docState.searchHits.length>3000)break}docState.searchIndex=0;await focusDocHit();}catch(err){docMsg('Erro na pesquisa: '+err.message,true)}};
+async function focusDocHit(){const hits=docState.searchHits;const found=hits.length;$('pdfFindInfo').textContent=found?`${docState.searchIndex+1} de ${found} ocorrência(s)`:'Nenhuma ocorrência';if(found){docState.page=hits[docState.searchIndex];await showPdfPage();docMsg('Termo localizado na página '+docState.page+'. Visualização por página; o destaque dentro da imagem ainda não está disponível.')}else docMsg('Termo não encontrado em texto selecionável. PDFs escaneados exigem OCR.')}
+$('pdfSearchPrev').onclick=()=>{if(docState.searchHits.length){docState.searchIndex=(docState.searchIndex-1+docState.searchHits.length)%docState.searchHits.length;focusDocHit()}};
+$('pdfSearchNext').onclick=()=>{if(docState.searchHits.length){docState.searchIndex=(docState.searchIndex+1)%docState.searchHits.length;focusDocHit()}};
+$('pdfFind').addEventListener('keydown',e=>{if(e.key==='Enter')$('pdfSearch').click()});
+$('pdfToScanner').onclick=async()=>{if(!docState.pdf)return;try{const page=await docState.pdf.getPage(docState.page),vp=page.getViewport({scale:1.6}),c=document.createElement('canvas');c.width=Math.ceil(vp.width);c.height=Math.ceil(vp.height);await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;const b=await canvasBlob(c,'image/png');await addBlob(b,`${docState.sourceName} — página ${docState.page}`);const t=await pdfText(docState.page);const p=selected();if(p){p.ocr=t;p.ocrEdited=false;$('ocrText').value=t}docMsg(`Página ${docState.page} enviada ao scanner. Você pode recortar, melhorar e aplicar OCR.`)}catch(err){docMsg('Falha ao enviar ao scanner: '+err.message,true)}};
+function xmlSafe(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;')}
+async function docxFromText(txt){const paragraphs=txt.replace(/\r/g,'').split('\n').map(line=>`<w:p><w:r><w:t xml:space="preserve">${xmlSafe(line)}</w:t></w:r></w:p>`).join('');const document=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paragraphs}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417"/></w:sectPr></w:body></w:document>`;const types=`<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;const rels=`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;return buildZip([['[Content_Types].xml',types],['_rels/.rels',rels],['word/document.xml',document]].map(([name,data])=>({name,blob:new Blob([data],{type:'text/xml'})})))}
+$('saveDocx').onclick=async()=>{try{const t=$('docEditor').value;if(!t.trim())throw Error('O editor está vazio.');blobDownload(await docxFromText(t),'scansoft-convertido.docx');docMsg('DOCX criado a partir do texto do editor. Revise a formatação no Word.')}catch(err){docMsg('Falha ao criar DOCX: '+err.message,true)}};
+function textToCanvases(txt){const lines=txt.replace(/\r/g,'').split('\n'),width=1240,height=1754,margin=90,lineHeight=31,maxWidth=width-2*margin,items=[];let canvas,ctx,y;function newPage(){canvas=document.createElement('canvas');canvas.width=width;canvas.height=height;ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,width,height);ctx.fillStyle='#111';ctx.font='24px Arial, sans-serif';y=margin;items.push(canvas)}newPage();for(const line of lines){let words=line.split(/\s+/),buffer='';let out=[];for(const word of words){let test=buffer?buffer+' '+word:word;if(ctx.measureText(test).width>maxWidth&&buffer){out.push(buffer);buffer=word}else buffer=test}out.push(buffer);for(const row of out){if(y>height-margin){newPage()}ctx.fillText(row,margin,y);y+=lineHeight}}return items}
+$('saveEditorPDF').onclick=async()=>{try{const t=$('docEditor').value;if(!t.trim())throw Error('O editor está vazio.');const canvases=textToCanvases(t),images=[];for(const c of canvases)images.push({blob:await canvasBlob(c,'image/jpeg',.95),width:c.width,height:c.height});blobDownload(await buildPDF(images,false),'scansoft-texto-editado.pdf');docMsg(`PDF criado com ${images.length} página(s). Exportação visual; não preserva formatação complexa.`)}catch(err){docMsg('Falha ao criar PDF: '+err.message,true)}};
+$('printEditor').onclick=()=>{const t=$('docEditor').value;if(!t.trim())return docMsg('O editor está vazio.',true);const win=window.open('','_blank');if(!win)return docMsg('Permita pop-ups para imprimir.',true);win.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Documento ScanSoft</title><style>body{font:12pt/1.5 Arial;white-space:pre-wrap;margin:18mm;overflow-wrap:anywhere}</style></head><body></body></html>');win.document.body.textContent=t;win.document.close();win.focus();win.print()};
+
+/* Editor visual 1.8: coordenadas normalizadas por página, exportação preserva PDF base. */
+const markState={tool:'select',pages:new Map(),drag:null,redoStack:[],pendingImage:null};
+const editInfo=s=>$('editInfo').textContent=s;
+const marks=()=>{const n=docState.page;if(!markState.pages.has(n))markState.pages.set(n,[]);return markState.pages.get(n)};
+const rgba=(hex,a=1)=>{const h=hex.replace('#','');return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${a})`};
+function selectTool(tool){markState.tool=tool;for(const [t,id] of Object.entries({select:'editSelect',text:'editText',highlight:'editHighlight',rect:'editRect',pen:'editPen',comment:'editComment',image:'editImage'}))$(''+id).setAttribute('aria-pressed',String(t===tool));$('editOverlay').style.cursor=tool==='select'?'default':'crosshair';editInfo(tool==='select'?'Navegação ativa. Escolha uma ferramenta para marcar o PDF.':'Ferramenta: '+tool+'. Toque ou arraste na página.');}
+function paintMarks(){const base=$('pdfCanvas'),c=$('editOverlay');if(base.hidden||!docState.pdf){c.hidden=true;return}c.hidden=false;c.width=base.width;c.height=base.height;const g=c.getContext('2d'),sx=c.width,sy=c.height;g.clearRect(0,0,sx,sy);for(const m of [...marks(),...(markState.drag?[markState.drag]:[])]){g.strokeStyle=m.color||'#e43c50';g.fillStyle=m.color||'#e43c50';g.lineWidth=Math.max(2,(m.size||3)/2);if(m.type==='text'){g.font=`${m.size||14}px Arial`;g.fillText(m.text,m.x*sx,m.y*sy)}else if(m.type==='comment'){g.fillStyle='#fff4a8';g.fillRect(m.x*sx,m.y*sy-18,21,21);g.strokeRect(m.x*sx,m.y*sy-18,21,21);g.fillStyle='#28231b';g.font='bold 15px Arial';g.fillText('!',m.x*sx+8,m.y*sy-3)}else if(m.type==='rect'||m.type==='highlight'){const x=Math.min(m.x,m.x2)*sx,y=Math.min(m.y,m.y2)*sy,w=Math.abs(m.x2-m.x)*sx,h=Math.abs(m.y2-m.y)*sy;if(m.type==='highlight'){g.fillStyle=rgba(m.color||'#ffdc50',.28);g.fillRect(x,y,w,h)}else g.strokeRect(x,y,w,h)}else if(m.type==='pen'){if(m.points.length<2)continue;g.beginPath();m.points.forEach(([x,y],i)=>i?g.lineTo(x*sx,y*sy):g.moveTo(x*sx,y*sy));g.stroke()}else if(m.type==='image'&&m.img){g.drawImage(m.img,m.x*sx,m.y*sy,m.w*sx,m.h*sy)}}}
+const showBeforeEdit=showPdfPage;
+showPdfPage=async function(){await showBeforeEdit();paintMarks();$('editSave').disabled=!docState.pdf};
+function norm(e){const r=$('editOverlay').getBoundingClientRect();return {x:Math.max(0,Math.min(1,(e.clientX-r.left)/r.width)),y:Math.max(0,Math.min(1,(e.clientY-r.top)/r.height))}}
+$('editOverlay').addEventListener('pointerdown',e=>{if(!docState.pdf||markState.tool==='select')return;const p=norm(e),color=$('editColor').value,size=Math.min(72,Math.max(6,+$('editSize').value||14));const tool=markState.tool;
+ if(tool==='text'||tool==='comment'){const value=prompt(tool==='text'?'Texto para inserir:':'Escreva o comentário:');if(value){marks().push({type:tool,x:p.x,y:p.y,text:value,color,size});paintMarks()}return}
+ if(tool==='image'){$('editImageInput').click();markState.pendingImage=p;return}
+ markState.drag=tool==='pen'?{type:'pen',points:[[p.x,p.y]],color,size}:{type:tool,x:p.x,y:p.y,x2:p.x,y2:p.y,color,size};e.target.setPointerCapture(e.pointerId);paintMarks()});
+$('editOverlay').addEventListener('pointermove',e=>{if(!markState.drag)return;const p=norm(e);if(markState.drag.type==='pen')markState.drag.points.push([p.x,p.y]);else{markState.drag.x2=p.x;markState.drag.y2=p.y}paintMarks()});
+function endMark(e){if(!markState.drag)return;const m=markState.drag;markState.drag=null;if(m.type==='pen'?m.points.length>1:Math.abs(m.x2-m.x)+Math.abs(m.y2-m.y)>.002)marks().push(m);paintMarks()}
+$('editOverlay').addEventListener('pointerup',endMark);$('editOverlay').addEventListener('pointercancel',()=>{markState.drag=null;paintMarks()});
+for(const [t,id] of Object.entries({select:'editSelect',text:'editText',highlight:'editHighlight',rect:'editRect',pen:'editPen',comment:'editComment',image:'editImage'}))$(id).onclick=()=>selectTool(t);
+$('editUndo').onclick=()=>{if(marks().length){marks().pop();paintMarks();editInfo('Última anotação removida.')}};
+$('editClear').onclick=()=>{if(marks().length&&confirm('Remover todas as anotações desta página?')){markState.pages.set(docState.page,[]);paintMarks()}};
+$('editImageInput').onchange=async e=>{const f=e.target.files?.[0];e.target.value='';if(!f||!markState.pendingImage)return;try{if(f.size>12*1024*1024)throw Error('Imagem maior que 12 MB.');const url=URL.createObjectURL(f);let img;try{img=await loadImage(url)}finally{URL.revokeObjectURL(url)}const point=markState.pendingImage,w=Math.min(.4,1-point.x),h=Math.min(w*img.height/img.width,1-point.y);marks().push({type:'image',x:point.x,y:point.y,w,h,img,data:await f.arrayBuffer(),mime:f.type});paintMarks()}catch(err){editInfo('Falha ao inserir imagem: '+err.message)}finally{markState.pendingImage=null}};
+async function ensurePdfLib(){await loadDocLib('https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js',()=>!!window.PDFLib)}
+function libColor(s){const h=s.replace('#','');return window.PDFLib.rgb(parseInt(h.slice(0,2),16)/255,parseInt(h.slice(2,4),16)/255,parseInt(h.slice(4,6),16)/255)}
+function safePdfText(s){return s.replace(/[^ -~ -ÿ]/g,'?')}
+$('editSave').onclick=async()=>{if(!docState.pdfData)return editInfo('Abra um PDF primeiro.');try{editInfo('Salvando anotações no PDF…');await ensurePdfLib();const lib=window.PDFLib,pdf=await lib.PDFDocument.load(docState.pdfData,{ignoreEncryption:false}),pages=pdf.getPages(),font=await pdf.embedFont(lib.StandardFonts.Helvetica);for(const [pnum,arr] of markState.pages){const page=pages[pnum-1];if(!page)continue;const {width:W,height:H}=page.getSize();const pt=([x,y])=>({x:x*W,y:(1-y)*H});for(const m of arr){const color=libColor(m.color||'#e43c50'),size=m.size||14,pos=pt([m.x,m.y]);if(m.type==='text'){const txt=safePdfText(m.text);for(const [i,line] of txt.split('\n').entries())page.drawText(line,{x:pos.x,y:pos.y-i*size*1.2,size:Math.max(6,Math.min(72,size)),font,color})}else if(m.type==='comment'){page.drawRectangle({x:pos.x,y:pos.y-3,width:18,height:18,color:lib.rgb(1,.95,.5)});page.drawText('!',{x:pos.x+6,y:pos.y+1,size:12,font,color:lib.rgb(0,0,0)});/* Comentário visual; não é anotação interativa */
+ const label=safePdfText(m.text).slice(0,400);page.drawText(label,{x:Math.min(pos.x,W-150),y:Math.max(15,pos.y-18),size:9,font,color})}else if(m.type==='rect'||m.type==='highlight'){const a=pt([Math.min(m.x,m.x2),Math.max(m.y,m.y2)]),w=Math.abs(m.x2-m.x)*W,h=Math.abs(m.y2-m.y)*H;if(w<1||h<1)continue;if(m.type==='highlight')page.drawRectangle({x:a.x,y:a.y,width:w,height:h,color,opacity:.28});else page.drawRectangle({x:a.x,y:a.y,width:w,height:h,borderColor:color,borderWidth:2})}else if(m.type==='pen'){for(let i=1;i<m.points.length;i++){page.drawLine({start:pt(m.points[i-1]),end:pt(m.points[i]),thickness:Math.max(1,size/2),color})}}else if(m.type==='image'){const raw=new Uint8Array(m.data),embedded=m.mime==='image/png'?await pdf.embedPng(raw):await pdf.embedJpg(raw);page.drawImage(embedded,{x:pos.x,y:pos.y-m.h*H,width:m.w*W,height:m.h*H})}}}const result=await pdf.save();blobDownload(new Blob([result],{type:'application/pdf'}),'scansoft-editado-v3.1.pdf');editInfo('PDF editado exportado. Confira as anotações e a legibilidade do arquivo.') }catch(err){editInfo('Falha na exportação: '+err.message)}};
+const oldLoad=$('pdfInput').onchange;$('pdfInput').onchange=async e=>{markState.pages.clear();markState.pendingImage=null;await oldLoad(e);paintMarks()};
+
+/* ScanSoft 2.0 — organizador não destrutivo, com suporte a documentos mesclados. */
+const org={sources:[],order:[],selected:new Set(),busy:false};
+const orgMsg=(s,bad=false)=>{const el=$('orgStatus');el.textContent=s;el.style.color=bad?'#a21f35':'#285d83'};
+function orgList(){const host=$('orgPages');host.textContent='';org.order.forEach((p,i)=>{const button=document.createElement('button');button.type='button';button.className='org-page';button.setAttribute('aria-pressed',String(org.selected.has(i)));const heading=document.createElement('strong');heading.textContent=`Página ${i+1}`;const name=document.createElement('small');name.textContent=org.sources[p.source]?.name||'PDF';const desc=document.createElement('em');desc.textContent=`Original ${p.index+1} · rotação ${p.rotate}°`;button.append(heading,name,desc);button.addEventListener('click',()=>{if(org.selected.has(i))org.selected.delete(i);else org.selected.add(i);orgList()});host.append(button)});orgControls()}
+function orgControls(){const has=org.order.length>0;for(const id of ['orgRefresh','orgSelectAll','orgDeselect','orgUp','orgDown','orgRotate','orgRemove','orgExtract','orgSave'])$(id).disabled=!has||org.busy;$('orgImport').disabled=org.busy}
+function orgReset(bytes,name,count){org.sources=[{bytes:new Uint8Array(bytes),name:name||'documento.pdf'}];org.order=Array.from({length:count},(_,index)=>({source:0,index,rotate:0}));org.selected.clear();orgList();orgMsg(`${count} páginas prontas. Escolha as páginas para operações individuais.`)}
+const originalPdfOpen=$('pdfInput').onchange;
+$('pdfInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;await originalPdfOpen(e);if(docState.pdfData&&docState.sourceName===f.name)orgReset(docState.pdfData,f.name,docState.pdf.numPages)};
+$('orgImport').onclick=()=>$('orgInput').click();
+$('orgInput').onchange=async e=>{const files=[...e.target.files];e.target.value='';if(!files.length)return;org.busy=true;orgControls();try{await ensurePdfLib();let added=0;for(const file of files){if(file.size>150*1024*1024)throw Error(`${file.name}: excede o limite de 150 MB`);const bytes=new Uint8Array(await file.arrayBuffer());const loaded=await window.PDFLib.PDFDocument.load(bytes,{ignoreEncryption:false});const source=org.sources.length;org.sources.push({bytes,name:file.name});for(let i=0;i<loaded.getPageCount();i++)org.order.push({source,index:i,rotate:0});added+=loaded.getPageCount()}orgMsg(`${added} página(s) acrescentada(s), de ${files.length} arquivo(s). Clique em Salvar PDF organizado para exportar.`)}catch(err){orgMsg('Falha ao mesclar: '+err.message,true)}finally{org.busy=false;orgList()}};
+$('orgRefresh').onclick=()=>{org.selected.clear();orgList();orgMsg('Lista de páginas atualizada.')};
+$('orgSelectAll').onclick=()=>{org.selected=new Set(org.order.map((_,i)=>i));orgList()};
+$('orgDeselect').onclick=()=>{org.selected.clear();orgList()};
+function orgMove(dir){const old=org.order;const chosen=org.selected;const indices=[...chosen].sort((a,b)=>dir<0?a-b:b-a);for(const i of indices){const j=i+dir;if(j<0||j>=old.length||chosen.has(j))continue;[old[i],old[j]]=[old[j],old[i]];chosen.delete(i);chosen.add(j)}orgList()}
+$('orgUp').onclick=()=>orgMove(-1);$('orgDown').onclick=()=>orgMove(1);
+$('orgRotate').onclick=()=>{for(const i of org.selected)org.order[i].rotate=(org.order[i].rotate+90)%360;orgList()};
+$('orgRemove').onclick=()=>{if(!org.selected.size)return orgMsg('Selecione páginas para excluir.',true);if(org.selected.size===org.order.length)return orgMsg('Não é permitido exportar documento sem páginas.',true);if(!confirm(`Excluir ${org.selected.size} página(s) do rascunho?`))return;org.order=org.order.filter((_,i)=>!org.selected.has(i));org.selected.clear();orgList();orgMsg('Páginas removidas do rascunho; o PDF original permanece intacto.')};
+async function orgExport(onlySelected){if(!org.order.length)throw Error('Nenhuma página para exportar.');await ensurePdfLib();const lib=window.PDFLib,out=await lib.PDFDocument.create(),cache=new Map();const indexes=onlySelected?[...org.selected].sort((a,b)=>a-b):org.order.map((_,i)=>i);if(!indexes.length)throw Error('Selecione pelo menos uma página.');for(let k=0;k<indexes.length;k++){const item=org.order[indexes[k]];let source=cache.get(item.source);if(!source){source=await lib.PDFDocument.load(org.sources[item.source].bytes,{ignoreEncryption:false});cache.set(item.source,source)}const copied=await out.copyPages(source,[item.index]);const p=copied[0];if(item.rotate){const current=p.getRotation().angle||0;p.setRotation(lib.degrees((current+item.rotate)%360))}out.addPage(p);orgMsg(`Montando PDF: ${k+1} de ${indexes.length} páginas…`)}const data=await out.save();blobDownload(new Blob([data],{type:'application/pdf'}),onlySelected?'scansoft-2-extracao.pdf':'scansoft-2-organizado.pdf');orgMsg(`PDF gerado: ${indexes.length} página(s). Revise o resultado antes de utilização oficial.`)}
+async function runOrg(selected){if(org.busy)return;org.busy=true;orgControls();try{await orgExport(selected)}catch(err){orgMsg('Falha ao gerar PDF: '+err.message,true)}finally{org.busy=false;orgControls()}}
+$('orgExtract').onclick=()=>runOrg(true);$('orgSave').onclick=()=>runOrg(false);
+orgControls();
+
+/* v3.1 — audit trail, content detection and targeted OCR import. No PDF content is uploaded. */
+const audit3={pages:[],fileName:'',busy:false,sequence:0};
+const auditMsg3=(message,error=false)=>{const e=$('auditStatus');e.textContent=message;e.style.color=error?'#a21f35':'#245b87'};
+function resetAudit3(){audit3.pages=[];audit3.fileName='';audit3.sequence++;$('auditResults').replaceChildren();$('auditCSV').disabled=true;$('importScannedPages').disabled=true;$('auditPDF').disabled=!docState.pdf;auditMsg3('Abra um PDF e clique em Inspecionar PDF.');}
+const originalPDFInput3=$('pdfInput').onchange;
+$('pdfInput').onchange=async function(e){resetAudit3();await originalPDFInput3.call(this,e);$('auditPDF').disabled=!docState.pdf};
+const originalWordInput3=$('wordInput').onchange;
+$('wordInput').onchange=async function(e){await originalWordInput3.call(this,e);resetAudit3()};
+function auditRender3(){const host=$('auditResults');host.replaceChildren();for(const item of audit3.pages){const el=document.createElement('div');el.className='audit-item'+(item.needsOCR?' warn':'');const title=document.createElement('strong');title.textContent='Página '+item.page;const info=document.createElement('span');info.textContent=item.needsOCR?'Possível digitalização / texto insuficiente':'Texto detectado';const meta=document.createElement('small');meta.textContent=`${item.characters} caracteres · ${item.width} × ${item.height} pt`;el.append(title,info,meta);host.append(el)}}
+$('auditPDF').onclick=async()=>{
+ if(!docState.pdf||audit3.busy)return;
+ audit3.busy=true;$('auditPDF').disabled=true;const my=++audit3.sequence;
+ try{const pdf=docState.pdf,rows=[];for(let i=1;i<=pdf.numPages;i++){
+  auditMsg3(`Inspecionando página ${i} de ${pdf.numPages}…`);
+  const page=await pdf.getPage(i),content=await page.getTextContent(),str=content.items.map(x=>x.str||'').join(' ').trim();
+  if(my!==audit3.sequence)throw Error('Arquivo alterado durante a auditoria.');
+  const box=page.getViewport({scale:1});
+  rows.push({page:i,characters:str.length,needsOCR:str.replace(/\s/g,'').length<25,width:Math.round(box.width),height:Math.round(box.height)});
+ }
+ audit3.pages=rows;audit3.fileName=docState.sourceName;auditRender3();
+ $('auditCSV').disabled=false;$('importScannedPages').disabled=false;
+ auditMsg3(`Inspeção concluída: ${rows.length} páginas, ${rows.filter(r=>r.needsOCR).length} para avaliar com OCR. Limiar heurístico: menos de 25 caracteres não brancos.`);
+ }catch(err){auditMsg3('Falha na inspeção: '+err.message,true)}finally{audit3.busy=false;$('auditPDF').disabled=!docState.pdf}
+};
+function csvEscape3(v){return '"'+String(v).replace(/"/g,'""')+'"'}
+$('auditCSV').onclick=()=>{if(!audit3.pages.length)return;const rows=[['Arquivo','Pagina','Caracteres','Largura_pt','Altura_pt','Possivel_OCR'],...audit3.pages.map(r=>[audit3.fileName,r.page,r.characters,r.width,r.height,r.needsOCR?'SIM':'NAO'])];const csv='\ufeff'+rows.map(r=>r.map(csvEscape3).join(';')).join('\r\n');blobDownload(new Blob([csv],{type:'text/csv;charset=utf-8'}),'scansoft3-auditoria.csv')};
+$('importScannedPages').onclick=async()=>{
+ if(!docState.pdf||audit3.busy)return;
+ if(!audit3.pages.length){auditMsg3('Primeiro inspecione o PDF.',true);return}
+ const candidates=audit3.pages.filter(x=>$('importAllPages').checked||x.needsOCR);
+ if(!candidates.length){auditMsg3('Todas as páginas possuem texto detectável. Marque “Importar todas” caso deseje refazer o OCR.');return}
+ if(candidates.length>60&&!confirm(`Importar ${candidates.length} páginas pode consumir muita memória. Continuar?`))return;
+ audit3.busy=true;$('importScannedPages').disabled=true;
+ const pdf=docState.pdf;let done=0;
+ try{for(const item of candidates){auditMsg3(`Preparando página ${item.page} de ${pdf.numPages} para OCR…`);
+  const page=await pdf.getPage(item.page);const base=page.getViewport({scale:1});
+  const maxPixels=5000000,requested=+$('scanDpi').value,scale=Math.min(requested,Math.sqrt(maxPixels/(base.width*base.height)));
+  const view=page.getViewport({scale});const c=document.createElement('canvas');c.width=Math.ceil(view.width);c.height=Math.ceil(view.height);
+  await page.render({canvasContext:c.getContext('2d'),viewport:view}).promise;
+  const blob=await canvasBlob(c,'image/png');await addBlob(blob,`PDF — página ${item.page}`);done++;c.width=0;c.height=0;
+ }
+ auditMsg3(`${done} páginas importadas ao scanner. Agora clique em “Reconhecer todas” no módulo OCR; depois confira a confiança e exporte o PDF pesquisável.`)
+ }catch(err){auditMsg3(`Importação parcial: ${done} página(s). ${err.message}`,true)}finally{audit3.busy=false;$('importScannedPages').disabled=false}
+};
+$('auditPDF').disabled=true;
+
+/* v3.1 — Pesquisa textual contextual e exportável (sem rede). */
+const find31={hits:[],working:false,serial:0};
+function fold31(t){return String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
+function whole31(t,start,length){const left=start>0?t[start-1]:'';const right=t[start+length]||'';const word=/[a-z0-9_]/i;return !word.test(left)&&!word.test(right)}
+function excerpt31(t,start,len){const lo=Math.max(0,start-65),hi=Math.min(t.length,start+len+90);return (lo?'…':'')+t.slice(lo,hi).replace(/\s+/g,' ')+(hi<t.length?'…':'')}
+function resetFind31(){find31.serial++;find31.hits=[];find31.working=false;$('findList31').replaceChildren();$('exportFind31').disabled=true;$('findProgress31').textContent='Sem resultados. Digite o termo na caixa de pesquisa do PDF.';docState.searchHits=[];docState.searchIndex=0;$('pdfFindInfo').textContent=''}
+function renderFind31(){const host=$('findList31');host.replaceChildren();if(!$('findPages31').checked)return;const frag=document.createDocumentFragment();find31.hits.slice(0,350).forEach((item,i)=>{const b=document.createElement('button');b.type='button';b.className='btn';b.style.cssText='display:block;width:100%;text-align:left;margin:6px 0;white-space:normal;line-height:1.4';const strong=document.createElement('strong');strong.textContent=`Página ${item.page} · ocorrência ${i+1}`;const p=document.createElement('span');p.style.display='block';p.textContent=item.preview;b.append(strong,p);b.onclick=()=>{docState.searchIndex=i;focusDocHit()};frag.append(b)});host.append(frag);if(find31.hits.length>350){const p=document.createElement('p');p.className='small';p.textContent='Exibindo as primeiras 350 ocorrências. Exporte o CSV para conferir todas.';host.append(p)}}
+$('pdfSearch').onclick=async()=>{const query=$('pdfFind').value.trim(),needle=fold31(query),pdf=docState.pdf;if(!needle||!pdf){docMsg('Abra um PDF e digite um termo.',true);return}const serial=++find31.serial;find31.working=true;find31.hits=[];docState.searchHits=[];$('exportFind31').disabled=true;$('findList31').replaceChildren();try{const limit=3000;for(let page=1;page<=pdf.numPages;page++){if(serial!==find31.serial||pdf!==docState.pdf)return;$('findProgress31').textContent=`Pesquisando página ${page} de ${pdf.numPages}…`;const text=await pdfText(page),normalized=fold31(text);let at=0;while((at=normalized.indexOf(needle,at))!==-1){if(!$('findWhole31').checked||whole31(normalized,at,needle.length)){find31.hits.push({page,preview:excerpt31(text,at,needle.length),index:at});docState.searchHits.push(page)}at+=Math.max(1,needle.length);if(find31.hits.length>=limit)break}if(find31.hits.length>=limit)break}if(serial!==find31.serial||pdf!==docState.pdf)return;docState.searchIndex=0;renderFind31();$('exportFind31').disabled=!find31.hits.length;$('findProgress31').textContent=`${find31.hits.length} ocorrência(s) em ${new Set(find31.hits.map(h=>h.page)).size} página(s).${find31.hits.length>=limit?' Limite de 3.000 resultados atingido.':''}`;await focusDocHit();}catch(error){if(serial===find31.serial)docMsg('Falha na pesquisa: '+error.message,true)}finally{if(serial===find31.serial)find31.working=false}};
+$('findWhole31').onchange=()=>{if(docState.pdf&&$('pdfFind').value.trim())$('pdfSearch').click()};
+$('findPages31').onchange=renderFind31;
+$('clearFind31').onclick=()=>{resetFind31();$('pdfFind').value=''};
+$('exportFind31').onclick=()=>{if(!find31.hits.length)return;const esc=v=>'"'+String(v).replace(/"/g,'""')+'"';const cols=[['Arquivo','Termo','Pagina','Ocorrencia','Trecho'],...find31.hits.map((r,i)=>[docState.sourceName,$('pdfFind').value,r.page,i+1,r.preview])];const data='\ufeff'+cols.map(line=>line.map(esc).join(';')).join('\r\n');blobDownload(new Blob([data],{type:'text/csv;charset=utf-8'}),'scansoft31-pesquisa.csv')};
+const prevPdfFile31=$('pdfInput').onchange;
+$('pdfInput').onchange=async function(e){resetFind31();await prevPdfFile31.call(this,e)};
+const prevWordFile31=$('wordInput').onchange;
+$('wordInput').onchange=async function(e){resetFind31();await prevWordFile31.call(this,e)};
+
+
+/* ScanSoft 4.0: realce PDF calculado a partir de itens de texto PDF.js. */
+const visual32={serial:0,active:0};
+function clearPDF32(){const c=$('searchOverlay32');if(c){c.hidden=true;c.getContext('2d').clearRect(0,0,c.width,c.height)}}
+function norm32(t){return String(t||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
+async function drawPdfHighlights32(){
+ const serial=++visual32.serial,canvas=$('pdfCanvas'),overlay=$('searchOverlay32');
+ if(!$('highlight32').checked||!docState.pdf||canvas.hidden||!$('pdfFind').value.trim()){clearPDF32();return}
+ const hits=find31.hits.filter(h=>h.page===docState.page);
+ if(!hits.length){clearPDF32();$('highlightStatus32').textContent='Sem achados nesta página.';return}
+ try{
+  const page=await docState.pdf.getPage(docState.page),vp=page.getViewport({scale:+$('pdfZoom').value}),content=await page.getTextContent();
+  if(serial!==visual32.serial)return;
+  overlay.hidden=false;overlay.width=canvas.width;overlay.height=canvas.height;
+  overlay.style.width=canvas.width+'px';overlay.style.height=canvas.height+'px';
+  const ctx=overlay.getContext('2d');ctx.clearRect(0,0,overlay.width,overlay.height);
+  const needle=norm32($('pdfFind').value.trim()),whole=$('findWhole31').checked;
+  let marked=0;
+  // Mapa de caracteres entre itens (o PDF pode não conter espaços explícitos).
+  const chunks=[];let all='';
+  for(const item of content.items){if(typeof item.str!=='string')continue;const start=all.length;all+=item.str;chunks.push({item,start,end:all.length});if(item.hasEOL){all+='\n'}else{all+=' '}}
+  const folded=norm32(all),found=[];let pos=0;
+  while((pos=folded.indexOf(needle,pos))!==-1){if(!whole||whole31(folded,pos,needle.length))found.push([pos,pos+needle.length]);pos+=Math.max(1,needle.length);if(found.length>3000)break}
+  const active=find31.hits[docState.searchIndex],activeOffset=active?.page===docState.page?active.index:-1;
+  for(let k=0;k<found.length;k++){
+   const [a,b]=found[k],activeMatch=(a===activeOffset);
+   for(const ch of chunks){if(ch.end<=a||ch.start>=b)continue;
+    const item=ch.item,lo=Math.max(0,a-ch.start),hi=Math.min(item.str.length,b-ch.start);
+    if(hi<=lo||!item.str.length||!item.transform)continue;
+    const t=vp.transform?window.pdfjsLib.Util.transform(vp.transform,item.transform):item.transform;
+    const itemWidth=Math.abs((item.width||item.str.length*7)*vp.scale),h=Math.max(9,Math.hypot(t[2],t[3]));
+    const x=t[4]+itemWidth*(lo/item.str.length),width=Math.max(3,itemWidth*(hi-lo)/item.str.length);
+    const y=t[5]-h;ctx.fillStyle=activeMatch?'rgba(255,117,32,.56)':'rgba(255,221,0,.42)';ctx.fillRect(x,y,width,h+3);marked++;
+   }
+  }
+  $('highlightStatus32').textContent=marked?`${found.length} ocorrência(s) com realce aproximado nesta página.`:'Texto encontrado, mas sem coordenadas suficientes para realce.';
+ }catch(err){clearPDF32();$('highlightStatus32').textContent='Não foi possível desenhar o destaque: '+err.message}
+}
+const originalShowPdf32=showPdfPage;
+showPdfPage=async function(){visual32.serial++;clearPDF32();const pdf=docState.pdf,pg=docState.page;await originalShowPdf32();if(pdf===docState.pdf&&pg===docState.page)await drawPdfHighlights32()};
+const originalFocus32=focusDocHit;
+focusDocHit=async function(){await originalFocus32();await drawPdfHighlights32()};
+$('highlight32').onchange=()=>drawPdfHighlights32();
+const origReset32=resetFind31;
+resetFind31=function(){origReset32();visual32.serial++;clearPDF32();$('highlightStatus32').textContent='Sem pesquisa ativa.'};
+$('pdfSearch').addEventListener('click',()=>{visual32.serial++;clearPDF32()});
+
+/* Revisão de OCR: dados conservados localmente durante a sessão. */
+const scanVisual32={query:'',serial:0};
+function reviewStatus32(){
+ const pages=state.pages,total=pages.length,review=pages.filter(p=>p.ocr&&(!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85||p.ocrEdited)).length;
+ const pending=pages.filter(p=>!p.ocr).length;
+ const current=selected(),c=current?.ocrConfidence;
+ $('reviewStatus32').textContent=`${total} página(s) · ${pending} sem OCR · ${review} para revisão ${current?'· atual: '+(state.selected+1)+(current.ocrEdited?' (texto modificado)':Number.isFinite(c)?' (confiança estimada '+Math.round(c)+'%)':''):''}`;
+ $('reviewBar32').style.width=total?Math.round((total-pending)/total*100)+'%':'0%';
+}
+function renderScanOverlay32(){
+ let layer=$('scanOverlay32');if(!layer){layer=document.createElement('canvas');layer.id='scanOverlay32';layer.setAttribute('aria-hidden','true');$('view').appendChild(layer)}
+ const p=selected(),preview=$('preview');layer.hidden=true;
+ if(!p||!p.ocrWords?.length||p.ocrEdited||!$('scanHighlights32').checked||!scanVisual32.query||preview.classList.contains('hidden'))return;
+ const words=p.ocrWords,needle=norm32(scanVisual32.query),src=p.ocrImageSize||{width:preview.width,height:preview.height};
+ layer.width=preview.width;layer.height=preview.height;const pr=preview.getBoundingClientRect(),vr=$('view').getBoundingClientRect();layer.style.left=(pr.left-vr.left)+'px';layer.style.top=(pr.top-vr.top)+'px';layer.style.width=pr.width+'px';layer.style.height=pr.height+'px';layer.hidden=false;
+ // A imagem original é preservada: o desenho está em um canvas independente.
+ const ctx=layer.getContext('2d');let hits=0;
+ for(const w of words){if(!norm32(w.text).includes(needle)||!w.bbox)continue;const r=w.bbox;let x=r.x0*layer.width/src.width,y=r.y0*layer.height/src.height,width=(r.x1-r.x0)*layer.width/src.width,height=(r.y1-r.y0)*layer.height/src.height;ctx.fillStyle='rgba(255,214,0,.42)';ctx.fillRect(x,y,width,height);ctx.strokeStyle='#e77b12';ctx.strokeRect(x,y,width,height);hits++}
+ $('scanHits32').textContent=hits?`${hits} palavra(s) com coordenadas destacadas na página atual. Frases podem aparecer apenas na busca textual.`:'Texto localizado no documento, mas sem coordenadas individuais nesta página.';
+}
+const originalRender32=render;
+render=async function(){await originalRender32();reviewStatus32();renderScanOverlay32()};
+const originalSelect32=selectPage;
+selectPage=function(i){originalSelect32(i);reviewStatus32();queueMicrotask(renderScanOverlay32)};
+$('reviewPrevious32').onclick=()=>{if(state.selected>0)selectPage(state.selected-1)};
+$('reviewNext32').onclick=()=>{if(state.selected<state.pages.length-1)selectPage(state.selected+1)};
+$('reviewNeeds32').onclick=()=>{const n=state.pages.length;if(!n)return;for(let z=1;z<=n;z++){const i=(state.selected+z+n)%n,p=state.pages[i];if(!p.ocr||p.ocrEdited||!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85){selectPage(i);setStatus('Página indicada para conferência.');return}}setStatus('Nenhuma página prioritária identificada pela regra heurística; confira por amostragem.')};
+$('scanSearch32').onclick=()=>{scanVisual32.query=$('scanFind32').value.trim();if(!scanVisual32.query){$('scanHits32').textContent='Digite uma palavra ou frase.';return}let pages=0,hits=0;for(const p of state.pages){const text=norm32(p.ocr),q=norm32(scanVisual32.query);if(text.includes(q)){pages++;let pos=0;while((pos=text.indexOf(q,pos))>=0){hits++;pos+=Math.max(1,q.length)}}}if(!pages){$('scanHits32').textContent='Nenhuma ocorrência no OCR. Reconheça as páginas antes de pesquisar.'}else{$('scanHits32').textContent=`${hits} ocorrência(s) em ${pages} página(s).`;const i=state.pages.findIndex(p=>norm32(p.ocr).includes(norm32(scanVisual32.query)));if(i>=0)selectPage(i)}renderScanOverlay32()};
+$('scanClear32').onclick=()=>{scanVisual32.query='';$('scanFind32').value='';$('scanHits32').textContent='Destaques removidos.';const c=$('scanOverlay32');if(c)c.hidden=true};
+$('scanHighlights32').onchange=renderScanOverlay32;
+$('scanFind32').onkeydown=e=>{if(e.key==='Enter')$('scanSearch32').click()};
+$('reviewExport32').onclick=()=>{const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const rows=[['Pagina','Nome','Texto OCR','Confianca estimada','Revisao sugerida','Texto editado'],...state.pages.map((p,i)=>[i+1,p.name,p.ocr?'Sim':'Nao',Number.isFinite(p.ocrConfidence)?Math.round(p.ocrConfidence):'',!p.ocr?'OCR pendente':p.ocrEdited?'Sim - alterado':!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85?'Sim':'Amostragem',p.ocrEdited?'Sim':'Nao'])];blobDownload(new Blob(['\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'}),'scansoft32-revisao.csv')};
+reviewStatus32();
+
+
+/* v4.0 fluxo PDF -> detecção -> rasterização -> OCR -> relatório. */
+const auto33={busy:false,cancel:false,rows:[]};
+const autoMsg33=(s,p)=>{document.getElementById('autoStatus33').textContent=s;if(Number.isFinite(p))document.getElementById('autoProgress33').value=Math.max(0,Math.min(100,p));};
+document.getElementById('autoCancel33').onclick=()=>{auto33.cancel=true;autoMsg33('Cancelamento solicitado. A página em processamento poderá terminar antes de parar.');};
+document.getElementById('autoRun33').onclick=async()=>{
+ if(auto33.busy||ocrBusy)return;
+ if(!docState.pdf){autoMsg33('Abra um arquivo PDF na biblioteca para começar.');return;}
+ const pdf=docState.pdf,all=document.getElementById('autoAll33').checked,button=document.getElementById('autoRun33');
+ auto33.busy=true;auto33.cancel=false;auto33.rows=[];button.disabled=true;document.getElementById('autoCancel33').disabled=false;document.getElementById('autoCsv33').disabled=true;
+ const originCount=state.pages.length;
+ try{
+  const candidates=[];for(let pageNo=1;pageNo<=pdf.numPages;pageNo++){
+   if(auto33.cancel||pdf!==docState.pdf)throw Error('Operação interrompida ou arquivo alterado.');
+   autoMsg33(`Analisando página ${pageNo} de ${pdf.numPages}`,Math.round(pageNo/pdf.numPages*20));
+   const page=await pdf.getPage(pageNo),content=await page.getTextContent();const count=content.items.map(x=>x.str||'').join(' ').replace(/\s/g,'').length;
+   const needs=count<25;
+   auto33.rows.push({page:pageNo,chars:count,status:needs?'Pendente de OCR':'Texto detectado',confidence:''});
+   if(all||needs)candidates.push(pageNo);
+  }
+  if(!candidates.length){autoMsg33('Todas as páginas apresentam texto selecionável. Nenhuma foi enviada ao OCR.',100);return;}
+  if(candidates.length>80&&!confirm(`Serão processadas ${candidates.length} páginas. Pode consumir muita memória e demorar. Continuar?`)){autoMsg33('Operação cancelada.');return;}
+  const indices=[];
+  for(let k=0;k<candidates.length;k++){
+   if(auto33.cancel||pdf!==docState.pdf)throw Error('Operação interrompida ou arquivo alterado.');
+   const pageNo=candidates[k];autoMsg33(`Preparando página ${pageNo} (${k+1}/${candidates.length})`,20+Math.round(k/candidates.length*35));
+   const page=await pdf.getPage(pageNo),base=page.getViewport({scale:1}),requested=Number($('scanDpi').value)||2;
+   const scale=Math.min(requested,Math.sqrt(5000000/(base.width*base.height))),v=page.getViewport({scale});
+   const canvas=document.createElement('canvas');canvas.width=Math.ceil(v.width);canvas.height=Math.ceil(v.height);
+   try{await page.render({canvasContext:canvas.getContext('2d'),viewport:v}).promise;
+    const blob=await canvasBlob(canvas,'image/png');await addBlob(blob,`PDF p.${pageNo} — ${docState.sourceName}`);
+    const i=state.pages.length-1;state.pages[i].sourcePage33=pageNo;indices.push(i);
+    auto33.rows[pageNo-1].status='Importado, OCR pendente';
+   }finally{canvas.width=0;canvas.height=0;}
+  }
+  if(auto33.cancel)throw Error('Operação interrompida.');
+  autoMsg33(`Reconhecendo ${indices.length} página(s). Verifique as configurações do motor OCR.`,60);
+  await runOCR(false,indices);
+  let recognized=0;for(const i of indices){const p=state.pages[i];const r=auto33.rows[p.sourcePage33-1];r.confidence=Number.isFinite(p.ocrConfidence)?Math.round(p.ocrConfidence):'';r.status=p.ocr?'OCR realizado; revisar':'OCR não obtido';if(p.ocr)recognized++;}
+  autoMsg33(`${recognized}/${indices.length} página(s) com texto OCR. Confira o painel de revisão e salve o PDF pesquisável pelo scanner.`,100);
+ }catch(err){autoMsg33('Fluxo interrompido: '+err.message+'. Páginas já importadas foram preservadas.');}
+ finally{auto33.busy=false;button.disabled=false;document.getElementById('autoCancel33').disabled=true;document.getElementById('autoCsv33').disabled=!auto33.rows.length;reviewStatus32();}
+};
+document.getElementById('autoCsv33').onclick=()=>{const esc=s=>'"'+String(s??'').replace(/"/g,'""')+'"';const rows=[['Pagina','Caracteres_sem_espacos','Situacao','Confianca_estimativa'],...auto33.rows.map(r=>[r.page,r.chars,r.status,r.confidence])];blobDownload(new Blob(['\uFEFF'+rows.map(r=>r.map(esc).join(';')).join('\r\n')],{type:'text/csv;charset=utf-8'}),'scansoft33-processamento.csv')};
+
+
+$('checkOffline40').onclick=offlineCheck40;
+$('pdfOffline40').onclick=()=>$('pdfOfflineInput40').click();
+$('pdfOfflineInput40').onchange=async e=>{let file=e.target.files?.[0];e.target.value='';if(!file)return;try{setStatus('Convertendo páginas do PDF sem internet...');let n=await offlinePdf40(file);setStatus(`Importadas ${n} página(s). Escolha OCR local e reconheça todas.`)}catch(err){setStatus('Falha na importação PDF offline: '+err.message,true)}};
+if(location.hostname==='127.0.0.1'||location.hostname==='localhost'){offlineCheck40()}
+
+/* ScanSoft 5.5 — painel integrado, sem persistência remota. */
+const ss5=(id)=>document.getElementById(id);
+const ss5Say=(msg,err=false)=>{ss5('ss5Status').textContent=msg;ss5('ss5Status').style.color=err?'#a21f35':'#245077'};
+function ss5Metrics(){
+ const pages=state.pages||[], done=pages.filter(p=>String(p.ocr||'').trim()).length;
+ const pending=pages.length-done,rev=pages.filter(p=>p.ocr&&(p.ocrEdited||!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85)).length;
+ for(const [k,v] of [['ss5Pages',pages.length],['ss5Done',done],['ss5Pending',pending],['ss5Review',rev]])ss5(k).textContent=v;
+ ss5('ss5Progress').style.width=(pages.length?Math.round(done/pages.length*100):0)+'%';
+}
+function ss5Norm(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR')}
+function ss5Matches(hay,needle,whole){let found=[],at=0;if(!needle)return found;while((at=hay.indexOf(needle,at))!==-1){let before=hay[at-1],after=hay[at+needle.length];if(!whole||(!before||!/[a-z0-9]/i.test(before))&&(!after||!/[a-z0-9]/i.test(after)))found.push(at);at+=Math.max(needle.length,1);if(found.length>=1000)break}return found}
+function ss5Search(){
+ let input=ss5('ss5Query').value.trim(),host=ss5('ss5Results');host.replaceChildren();
+ if(!input){ss5('ss5SearchStatus').textContent='Digite um termo para pesquisar.';return}
+ let q=ss5Norm(input),whole=ss5('ss5Whole').checked,hits=0,listed=0;
+ for(let i=0;i<state.pages.length;i++){
+  const p=state.pages[i],raw=String(p.ocr||''),norm=ss5Norm(raw),matches=ss5Matches(norm,q,whole);hits+=matches.length;
+  for(const pos of matches.slice(0,8)){
+   if(listed>=120)continue;listed++;
+   const b=document.createElement('button');b.type='button';b.className='ss5result';
+   let begin=Math.max(0,pos-58),end=Math.min(raw.length,pos+input.length+75);
+   b.textContent=`Página ${i+1} · ${p.name||'Digitalização'} — …${raw.slice(begin,end).replace(/\s+/g,' ')}…`;
+   b.onclick=()=>{selectPage(i);ss5Say(`Página ${i+1} selecionada. Confira o texto extraído no painel OCR.`);document.getElementById('view').scrollIntoView({behavior:'smooth',block:'center'})};host.append(b)
+  }
+ }
+ ss5('ss5SearchStatus').textContent=`${hits} ocorrência(s) em ${state.pages.length} página(s). ${listed} resultado(s) listado(s). PDFs abertos apenas no leitor têm pesquisa separada.`;
+}
+function ss5ExportBlob(content,name,type){const blob=new Blob([content],{type});blobDownload(blob,name)}
+function ss5CSVCell(s){return '"'+String(s??'').replace(/"/g,'""')+'"'}
+ss5('ss5Txt').onclick=()=>{if(!state.pages.length)return ss5Say('Importe páginas antes de exportar.',true);let text=state.pages.map((p,i)=>`===== PÁGINA ${i+1}: ${p.name||'Sem nome'} =====\n${p.ocr||'[Sem OCR]'}\n`).join('\n');ss5ExportBlob('\ufeff'+text,'scansoft-5-textos.txt','text/plain;charset=utf-8');ss5Say('Texto consolidado exportado. Revise os resultados do OCR.')};
+ss5('ss5Csv').onclick=()=>{let rows=[['Pagina','Nome','OCR','Caracteres','Confianca_estimada','Revisao_sugerida'],...state.pages.map((p,i)=>[i+1,p.name,p.ocr?'Sim':'Nao',(p.ocr||'').length,Number.isFinite(p.ocrConfidence)?Math.round(p.ocrConfidence):'',!p.ocr||p.ocrEdited||!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85?'Sim':'Nao'])];ss5ExportBlob('\ufeff'+rows.map(r=>r.map(ss5CSVCell).join(';')).join('\r\n'),'scansoft-5-diagnostico.csv','text/csv;charset=utf-8');ss5Say('Diagnóstico CSV exportado.')};
+ss5('ss5Backup').onclick=()=>{
+ if(!state.pages.length)return ss5Say('Não há páginas para salvar no projeto.',true);
+ let pages=state.pages.map(p=>({name:p.name,base:p.base,work:p.work,settings:p.settings,ocr:p.ocr||'',ocrEdited:!!p.ocrEdited,ocrConfidence:Number.isFinite(p.ocrConfidence)?p.ocrConfidence:null,ocrWords:p.ocrWords||[],ocrImageSize:p.ocrImageSize||null}));
+ let json=JSON.stringify({format:'ScanSoftProject',version:5,createdAt:new Date().toISOString(),pages});
+ if(json.length>90_000_000)return ss5Say('Projeto excede 90 MB; exporte PDFs ou reduza a quantidade de imagens para salvar.',true);
+ ss5ExportBlob(json,'scansoft-5-projeto.json','application/json');ss5Say(`Projeto exportado com ${pages.length} página(s). Guarde o arquivo em local seguro.`)
+};
+ss5('ss5Restore').onclick=()=>ss5('ss5RestoreFile').click();
+ss5('ss5RestoreFile').onchange=async e=>{
+ const file=e.target.files?.[0];e.target.value='';if(!file)return;
+ try{
+  if(file.size>90_000_000)throw Error('Arquivo de projeto maior que 90 MB.');
+  const project=JSON.parse(await file.text());if(project.format!=='ScanSoftProject'||project.version!==5||!Array.isArray(project.pages)||project.pages.length>500)throw Error('Formato ou versão de projeto incompatível.');
+  const clean=[];
+  for(const p of project.pages){if(typeof p.base!=='string'||typeof p.work!=='string'||!/^data:image\/(png|jpeg|webp);base64,/i.test(p.base)||!/^data:image\/(png|jpeg|webp);base64,/i.test(p.work)||p.base.length>25000000||p.work.length>25000000)throw Error('Imagem de projeto inválida ou muito grande.');
+   clean.push({name:String(p.name||'Página').slice(0,180),base:p.base,work:p.work,settings:{mode:['none','document','gray','bw'].includes(p.settings?.mode)?p.settings.mode:'none',brightness:Math.max(-70,Math.min(70,Number(p.settings?.brightness)||0)),contrast:Math.max(-70,Math.min(70,Number(p.settings?.contrast)||0)),threshold:Math.max(60,Math.min(230,Number(p.settings?.threshold)||150)),sharp:!!p.settings?.sharp},ocr:String(p.ocr||'').slice(0,300000),ocrEdited:!!p.ocrEdited,ocrConfidence:Number.isFinite(p.ocrConfidence)?p.ocrConfidence:undefined,ocrWords:Array.isArray(p.ocrWords)?p.ocrWords.slice(0,15000):[],ocrImageSize:p.ocrImageSize||null})
+  }
+  if(state.pages.length&&!confirm('Substituir as páginas atuais pelo projeto importado? Exporte seu trabalho antes se necessário.'))return;
+  state.pages=clean;selectPage(clean.length?0:-1);ss5Metrics();ss5Say(`Projeto reaberto: ${clean.length} página(s).`)
+ }catch(ex){ss5Say('Não foi possível reabrir o projeto: '+ex.message,true)}
+};
+ss5('ss5Run').onclick=async()=>{const missing=state.pages.map((p,i)=>!String(p.ocr||'').trim()?i:-1).filter(i=>i>=0);if(!missing.length)return ss5Say('Não há páginas sem OCR.');
+ if(ocrBusy)return ss5Say('Já existe uma operação OCR em andamento.',true);
+ ss5Say(`Enviando ${missing.length} página(s) ao motor OCR selecionado...`);const btn=ss5('ss5Run');btn.disabled=true;
+ try{await runOCR(false,missing);ss5Metrics();ss5Say('Lote concluído. Confira páginas com baixa confiança antes de exportar.')}catch(ex){ss5Say('Erro durante o OCR: '+ex.message,true)}finally{btn.disabled=false;ss5Metrics()}
+};
+ss5('ss5ReviewNext').onclick=()=>{let n=state.pages.length;if(!n)return ss5Say('Nenhuma página carregada.',true);for(let step=1;step<=n;step++){let i=(state.selected+step+n)%n,p=state.pages[i];if(!p.ocr||p.ocrEdited||!Number.isFinite(p.ocrConfidence)||p.ocrConfidence<85){selectPage(i);ss5Say(`Página ${i+1}: revisão recomendada.`);document.getElementById('view').scrollIntoView({behavior:'smooth',block:'center'});return}}ss5Say('Todas as páginas com OCR têm confiança estimada ≥ 85 e não foram editadas.')};
+ss5('ss5Refresh').onclick=()=>{ss5Metrics();ss5Say('Diagnóstico atualizado.')};
+ss5('ss5Search').onclick=ss5Search;ss5('ss5Query').addEventListener('keydown',e=>{if(e.key==='Enter')ss5Search()});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.shiftKey&&e.key.toLowerCase()==='f'){e.preventDefault();ss5('ss5Query').focus();document.getElementById('central50').scrollIntoView({block:'start'})}});
+const ss5OriginalEnable=enable;enable=function(){ss5OriginalEnable();ss5Metrics()};
+ss5Metrics();
+
+
+/* ScanSoft 5.2: IndexedDB optional snapshot, bounded, opt-in, no remote storage. */
+const ss51dbName='scansoft51-local',ss51Store='snapshots';
+const ss51=(id)=>document.getElementById(id);
+const ss51Status=(s,bad=false)=>{const e=ss51('ss51Status');e.textContent=s;e.style.color=bad?'#a21f35':'#245077'};
+function ss51Open(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(Error('IndexedDB não disponível neste navegador.'));const req=indexedDB.open(ss51dbName,1);req.onupgradeneeded=()=>{if(!req.result.objectStoreNames.contains(ss51Store))req.result.createObjectStore(ss51Store)};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('Falha de armazenamento'))})}
+async function ss51Access(mode,cb){const db=await ss51Open();try{return await new Promise((resolve,reject)=>{const tx=db.transaction(ss51Store,mode),store=tx.objectStore(ss51Store),r=cb(store);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error||Error('Falha de leitura/escrita'));tx.onabort=()=>reject(tx.error||Error('Transação cancelada'))})}finally{db.close()}}
+function ss51Snapshot(){const pages=state.pages;if(pages.length>150)throw Error('Autosalvamento limitado a 150 páginas; exporte um projeto JSON.');return {format:'ScanSoftProject',version:5,createdAt:new Date().toISOString(),pages:pages.map(p=>({name:p.name,base:p.base,work:p.work,settings:p.settings,ocr:p.ocr||'',ocrEdited:!!p.ocrEdited,ocrConfidence:Number.isFinite(p.ocrConfidence)?p.ocrConfidence:null,ocrWords:Array.isArray(p.ocrWords)?p.ocrWords.slice(0,15000):[],ocrImageSize:p.ocrImageSize||null}))}}
+let ss51Saving=false,ss51Pending=false;
+async function ss51Save(){if(ss51Saving){ss51Pending=true;return}ss51Saving=true;try{const project=ss51Snapshot(),json=JSON.stringify(project);if(json.length>65_000_000)throw Error('Projeto maior que 65 MB; exporte JSON e reduza imagens.');await ss51Access('readwrite',s=>s.put(json,'last'));ss51Status('Backup local salvo: '+project.pages.length+' página(s), '+new Date().toLocaleTimeString('pt-BR')+'.')}catch(e){ss51Status('Falha ao salvar: '+e.message,true)}finally{ss51Saving=false;if(ss51Pending){ss51Pending=false;if(ss51('ss51Auto').checked)ss51Save()}}}
+function ss51Validate(obj){if(!obj||obj.format!=='ScanSoftProject'||obj.version!==5||!Array.isArray(obj.pages)||obj.pages.length>150)throw Error('Projeto incompatível.');return obj.pages.map(p=>{if(typeof p.base!=='string'||typeof p.work!=='string'||!/^data:image\/(png|jpeg|webp);base64,/i.test(p.base)||!/^data:image\/(png|jpeg|webp);base64,/i.test(p.work)||p.base.length>25000000||p.work.length>25000000)throw Error('Imagem inválida no projeto.');return {name:String(p.name||'Página').slice(0,180),base:p.base,work:p.work,settings:{mode:['none','document','gray','bw'].includes(p.settings?.mode)?p.settings.mode:'none',brightness:Math.max(-70,Math.min(70,Number(p.settings?.brightness)||0)),contrast:Math.max(-70,Math.min(70,Number(p.settings?.contrast)||0)),threshold:Math.max(60,Math.min(230,Number(p.settings?.threshold)||150)),sharp:!!p.settings?.sharp},ocr:String(p.ocr||'').slice(0,300000),ocrEdited:!!p.ocrEdited,ocrConfidence:Number.isFinite(p.ocrConfidence)?p.ocrConfidence:undefined,ocrWords:Array.isArray(p.ocrWords)?p.ocrWords.slice(0,15000):[],ocrImageSize:p.ocrImageSize||null}})}
+ss51('ss51Save').onclick=ss51Save;
+ss51('ss51Recover').onclick=async()=>{try{const raw=await ss51Access('readonly',s=>s.get('last'));if(!raw)return ss51Status('Nenhum backup local encontrado.',true);const pages=ss51Validate(JSON.parse(raw));if(state.pages.length&&!confirm('Substituir o scanner atual pelo backup local? Exporte o projeto atual antes.'))return;state.pages=pages;selectPage(pages.length?0:-1);ss5Metrics();ss51Status('Recuperação concluída: '+pages.length+' página(s).')}catch(e){ss51Status('Falha na recuperação: '+e.message,true)}};
+ss51('ss51Delete').onclick=async()=>{if(!confirm('Excluir definitivamente o backup local deste navegador?'))return;try{await ss51Access('readwrite',s=>s.delete('last'));ss51Status('Backup local apagado.')}catch(e){ss51Status('Falha ao apagar: '+e.message,true)}};
+try{ss51('ss51Auto').checked=localStorage.getItem('scansoft51-autosave')==='on'}catch{}
+ss51('ss51Auto').onchange=()=>{try{localStorage.setItem('scansoft51-autosave',ss51('ss51Auto').checked?'on':'off')}catch{}ss51Status(ss51('ss51Auto').checked?'Autosalvamento habilitado. Dados serão guardados somente neste navegador.':'Autosalvamento desabilitado. O backup existente não foi apagado.');if(ss51('ss51Auto').checked)ss51Save()};
+let ss51Timer=null,ss51LastSignature='';
+function ss51Schedule(){if(!ss51('ss51Auto').checked)return;const sig=state.pages.map(p=>[p.name,p.base?.length,p.work?.length,p.ocr||'',p.ocrConfidence,p.ocrEdited,JSON.stringify(p.settings)]).join('|');if(sig===ss51LastSignature)return;ss51LastSignature=sig;clearTimeout(ss51Timer);ss51Timer=setTimeout(()=>ss51Save(),2800)}
+const ss51OrigEnable=enable;enable=function(){ss51OrigEnable();ss51Schedule()};
+// OCR editors and order changes may occur without a size change; capture input and explicit mutations.
+for(const eventName of ['input','change'])document.getElementById('central50').addEventListener(eventName,()=>ss51Schedule());
+for(const id of ['ocrText','mode','brightness','contrast','threshold','sharp'])document.getElementById(id)?.addEventListener('input',()=>{ss51LastSignature='';ss51Schedule()});
+window.addEventListener('pagehide',()=>{if(ss51Timer&&ss51('ss51Auto').checked){clearTimeout(ss51Timer);ss51Save()}});
+
+
+/* ScanSoft 5.5 — version history, explicit review and quota visibility.
+   Uses the existing IndexedDB store; old 5.1 backup remains under `last`. */
+const ss52=id=>document.getElementById(id);
+const ss52Msg=(message,bad=false)=>{ss52('ss52Status').textContent=message;ss52('ss52Status').style.color=bad?'#a21f35':'#245077'};
+const ss52Prefix='version:',ss52Limit=5;
+async function ss52All(){const db=await ss51Open();try{return await new Promise((resolve,reject)=>{const tx=db.transaction(ss51Store,'readonly'),req=tx.objectStore(ss51Store).getAllKeys();req.onsuccess=()=>resolve(req.result.filter(k=>typeof k==='string'&&k.startsWith(ss52Prefix)).sort().reverse());req.onerror=()=>reject(req.error);tx.onabort=()=>reject(tx.error||Error('Falha no histórico'))})}finally{db.close()}}
+async function ss52UpdateQuota(){try{if(!navigator.storage?.estimate){ss52('ss52Quota').textContent='Estimativa de armazenamento indisponível.';return}const e=await navigator.storage.estimate();const mb=n=>(n/1048576).toFixed(1)+' MB';ss52('ss52Quota').textContent=`Armazenamento do site: ${mb(e.usage||0)} utilizados; cota estimada ${mb(e.quota||0)}. Inclui outros dados deste site.`}catch{ss52('ss52Quota').textContent='Não foi possível consultar o armazenamento.'}}
+async function ss52Refresh(){try{const keys=await ss52All(),sel=ss52('ss52Versions'),prior=sel.value;sel.replaceChildren();if(!keys.length){sel.add(new Option('Nenhuma versão registrada',''))}for(const key of keys){const d=new Date(key.slice(ss52Prefix.length));sel.add(new Option(`${Number.isNaN(+d)?key:d.toLocaleString('pt-BR')} — ${key.slice(-8)}`,key))}if(keys.includes(prior))sel.value=prior;await ss52UpdateQuota();ss52Msg(`${keys.length} versão(ões) disponíveis no armazenamento local.`)}catch(e){ss52Msg('Não foi possível consultar o histórico: '+e.message,true)}}
+function ss52VersionKey(){return ss52Prefix+new Date().toISOString()+':'+Math.random().toString(36).slice(2,9)}
+async function ss52SaveVersion(){try{const project=ss51Snapshot(),json=JSON.stringify(project);if(json.length>65_000_000)throw Error('Projeto excede 65 MB; exporte JSON e reduza imagens.');const key=ss52VersionKey();await ss51Access('readwrite',store=>store.put(json,key));const keys=await ss52All();for(const old of keys.slice(ss52Limit))await ss51Access('readwrite',store=>store.delete(old));await ss52Refresh();ss52('ss52Versions').value=key;ss52Msg('Versão criada: '+project.pages.length+' páginas. Preserve também backups JSON externos.')}catch(e){ss52Msg('Falha ao criar versão: '+e.message,true)}}
+async function ss52GetSelected(){const key=ss52('ss52Versions').value;if(!key||!key.startsWith(ss52Prefix))throw Error('Selecione uma versão válida.');const raw=await ss51Access('readonly',store=>store.get(key));if(typeof raw!=='string')throw Error('Versão não localizada.');return JSON.parse(raw)}
+ss52('ss52VersionSave').onclick=ss52SaveVersion;
+ss52('ss52Refresh').onclick=ss52Refresh;
+ss52('ss52Recover').onclick=async()=>{try{const pages=ss51Validate(await ss52GetSelected());if(state.pages.length&&!confirm('Restaurar a versão selecionada e substituir as páginas atuais? Salve uma versão atual antes de continuar.'))return;state.pages=pages;selectPage(pages.length?0:-1);ss5Metrics();ss51LastSignature='';ss52Msg('Versão restaurada: '+pages.length+' página(s).')}catch(e){ss52Msg('Erro na restauração: '+e.message,true)}};
+ss52('ss52Export').onclick=async()=>{try{const project=await ss52GetSelected();ss51Validate(project);const blob=new Blob([JSON.stringify(project)],{type:'application/json;charset=utf-8'});blobDownload(blob,'scansoft-5.2-versao-'+new Date().toISOString().slice(0,10)+'.json');ss52Msg('Versão exportada para arquivo JSON.')}catch(e){ss52Msg('Erro na exportação: '+e.message,true)}};
+ss52('ss52Delete').onclick=async()=>{const key=ss52('ss52Versions').value;if(!key)return ss52Msg('Nenhuma versão selecionada.',true);if(!confirm('Excluir somente esta versão do histórico local?'))return;try{await ss51Access('readwrite',store=>store.delete(key));await ss52Refresh();ss52Msg('Versão excluída.')}catch(e){ss52Msg('Erro ao excluir: '+e.message,true)}};
+// Refresh does not alter loaded pages or attempt a background save.
+ss52Refresh();
+
+
+// ScanSoft 5.5 — biblioteca local com arquivos originais PDF/DOCX.
+(()=>{'use strict';
+const el=id=>document.getElementById(id), status=(msg,error=false)=>{el('ss55Status').textContent=msg;el('ss55Status').style.color=error?'#a11c32':'#245b91'};
+const DB='scansoft-5.5-library',STORE='documents';let dbPromise;
+function database(){if(!dbPromise)dbPromise=new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(Error('IndexedDB não disponível.'));const req=indexedDB.open(DB,1);req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(STORE))db.createObjectStore(STORE,{keyPath:'id'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)});return dbPromise}
+async function op(mode,callback){const db=await database();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE,mode),store=tx.objectStore(STORE);let req;try{req=callback(store)}catch(e){reject(e);return}req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);tx.onabort=()=>reject(tx.error)})}
+const list=()=>op('readonly',s=>s.getAll()), get=id=>op('readonly',s=>s.get(id)),save=row=>op('readwrite',s=>s.put(row)),del=id=>op('readwrite',s=>s.delete(id));
+function kind(file){const name=(file.name||'').toLowerCase();if(name.endsWith('.pdf'))return 'pdf';if(name.endsWith('.docx'))return 'docx';return null}
+function uid(){return (crypto.randomUUID?.()||String(Date.now())+'-'+Math.random().toString(36).slice(2))}
+async function add(files){let count=0;for(const file of files){const type=kind(file);if(!type){status('Formato ignorado: '+file.name,true);continue}if(file.size>100*1024*1024){status('Arquivo acima de 100 MB: '+file.name,true);continue}try{await save({id:uid(),name:file.name,type,size:file.size,blob:file.slice(0,file.size,file.type||'application/octet-stream'),savedAt:Date.now()});count++}catch(e){status('Falha ao guardar '+file.name+': '+e.message,true)}}await refresh();if(count)status(count+' documento(s) guardado(s) neste navegador.')}
+async function openDoc(id){const row=await get(id);if(!row)throw Error('Documento não localizado.');const input=el(row.type==='pdf'?'pdfInput':'wordInput');const file=new File([row.blob],row.name,{type:row.type==='pdf'?'application/pdf':'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});const transfer=new DataTransfer();transfer.items.add(file);input.files=transfer.files;input.dispatchEvent(new Event('change',{bubbles:true}));el('documents')?.scrollIntoView({behavior:'smooth'});status('Abrindo '+row.name+' no módulo de documentos.');}
+async function downloadDoc(id){const row=await get(id);if(!row)throw Error('Documento não localizado.');const url=URL.createObjectURL(row.blob),a=document.createElement('a');a.href=url;a.download=row.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
+async function renameDoc(id){const row=await get(id);if(!row)return;const value=prompt('Novo nome (preserve .pdf ou .docx):',row.name);if(value===null)return;const name=value.trim();if(!name||name.length>200||!name.toLowerCase().endsWith('.'+row.type)){status('Nome inválido. Mantenha a extensão .'+row.type,true);return}row.name=name;await save(row);await refresh();status('Documento renomeado.')}
+async function removeDoc(id){const row=await get(id);if(!row||!confirm('Excluir a cópia local de "'+row.name+'"? Esta ação não apaga arquivos do dispositivo.'))return;await del(id);await refresh();status('Cópia local excluída.')}
+function button(label,action,id){const b=document.createElement('button');b.type='button';b.className='btn';b.textContent=label;b.addEventListener('click',()=>action(id).catch(e=>status(e.message,true)));return b}
+async function refresh(){try{const rows=(await list()).sort((a,b)=>b.savedAt-a.savedAt);const term=el('ss55Search').value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();const filtered=rows.filter(r=>r.name.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().includes(term));const host=el('ss55List');host.replaceChildren();for(const row of filtered){const outer=document.createElement('div');outer.className='ss55item';const info=document.createElement('div');const title=document.createElement('strong');title.textContent=(row.type==='pdf'?'📕 ':'📘 ')+row.name;const meta=document.createElement('div');meta.className='ss55meta';meta.textContent=(row.size/1048576).toFixed(2)+' MB · '+new Date(row.savedAt).toLocaleString('pt-BR');info.append(title,meta);const controls=document.createElement('div');controls.className='ss55buttons';for(const [label,fn] of [['Abrir',openDoc],['Baixar',downloadDoc],['Renomear',renameDoc],['Excluir',removeDoc]])controls.appendChild(button(label,fn,row.id));outer.append(info,controls);host.appendChild(outer)}if(!filtered.length){const p=document.createElement('p');p.className='small';p.textContent=rows.length?'Nenhum documento corresponde à busca.':'Nenhum documento salvo na biblioteca.';host.appendChild(p)}status(rows.length+' documento(s) na biblioteca · '+(rows.reduce((s,x)=>s+x.size,0)/1048576).toFixed(1)+' MB armazenados.')}catch(e){status('Biblioteca indisponível: '+e.message,true)}}
+el('ss55Add').onclick=()=>el('ss55Files').click();el('ss55Files').onchange=async e=>{const files=[...e.target.files];e.target.value='';await add(files)};el('ss55Search').addEventListener('input',refresh);el('ss55Refresh').onclick=refresh;refresh();
+})();
+
+</script></body></html>

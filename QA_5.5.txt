@@ -1,0 +1,22 @@
+ScanSoft 5.5 — Relatório de QA (17/10/2026)
+
+TESTES EXECUTADOS
+[OK] Compilação de sintaxe JavaScript no Node.js (new Function) do script embutido.
+[OK] Análise dos IDs HTML: 201 encontrados, zero duplicatas.
+[OK] Integridade de arquivos obrigatórios: index.html, servidor-local.js, modelos OCR por/eng, iniciadores, LEIA-ME.md.
+[OK] Empacotamento ZIP e checagem CRC de todos os membros.
+
+TESTES NÃO CONCLUÍDOS
+[RESTRIÇÃO AMBIENTE] Testes de navegador via Playwright/Chromium: ERR_BLOCKED_BY_ADMINISTRATOR no file:// e http://127.0.0.1. Não foi possível executar o teste da biblioteca IndexedDB.
+[PENDENTE] Testes de PDF/Word com conversão visual complexa e imagens/tabelas.
+[PENDENTE] Testes OCR em documentos reais e desempenho em Android/Windows de usuários.
+[PENDENTE] Teste de restauração/histórico com arquivos muito grandes e limite de armazenamento.
+
+LIMITAÇÕES CONHECIDAS
+- Biblioteca 5.5 guarda cópias de PDF/DOCX e não sincroniza automaticamente edições.
+- Não criptografa arquivos e não impede remoção dos dados pelo navegador.
+- OCR offline exige Node.js/Tesseract/Poppler previamente instalados e não cobre Android nativo.
+- Algumas bibliotecas PDF/Word dependem de CDN e internet.
+- Conversão PDF/Word e OCR não garantem fidelidade total; revisão humana necessária.
+
+STATUS: entrega de software funcional em desenvolvimento; sem homologação comercial ou documental crítica.
